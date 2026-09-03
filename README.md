@@ -65,9 +65,9 @@ cp .env.example .env      # add ANTHROPIC_API_KEY, or set VISION_BACKEND=ocr
 docker compose up -d --build
 ```
 
-Open `http://<host>:8080` on the kids' phones. Add to home screen and it
-behaves like an app. Without Docker: `python -m app.server` (dev server on
-`:8080`).
+Open `http://<host>:35000` on the kids' phones. Add to home screen and it
+behaves like an app. Without Docker: `python -m app.server` (dev server, honours PORT in .env, default 35000
+`:35000`).
 
 ### Using it
 
@@ -110,7 +110,7 @@ docker compose up -d --build
 docker exec -it animash-mixer python scraper/scrape_wiki.py   # once; data/ is a bind mount
 ```
 
-Phones on the Wi-Fi open `http://<unraid-ip>:8080` and "Add to Home Screen".
+Phones on the Wi-Fi open `http://<unraid-ip>:35000` and "Add to Home Screen".
 For a hostname, add an Unbound host override (e.g. `animash.lan`) in OPNsense.
 
 ## Tests

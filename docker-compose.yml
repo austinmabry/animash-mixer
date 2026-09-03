@@ -7,7 +7,7 @@ services:
     container_name: animash-mixer
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "35000:8080"
     env_file: .env
     volumes:
       # keeps the scraped catalog outside the image so rebuilds don't lose it
