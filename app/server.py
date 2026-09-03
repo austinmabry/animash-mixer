@@ -7,6 +7,7 @@ from pathlib import Path
 from flask import Flask, jsonify, request, send_from_directory
 
 from .fusions import Catalog
+from .match import ICON_DIR
 from .vision import identify
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,7 +33,8 @@ def health():
         "fusions": len(catalog.by_pair),
         "scraped_at": catalog.scraped_at,
         "sample_data": catalog.is_sample,
-        "vision_backend": os.environ.get("VISION_BACKEND", "claude"),
+        "vision_backend": os.environ.get("VISION_BACKEND", "icons"),
+        "icons": len(list(ICON_DIR.glob("*.png"))) if ICON_DIR.exists() else 0,
     })
 
 
@@ -59,8 +61,13 @@ def analyze():
         seen = identify(f.read(), catalog.animals)
     except Exception as e:  # surface the real reason to the UI
         return jsonify({"error": f"Could not read the picture: {e}"}), 502
+    if seen["backend"] == "icons" and not seen["tiles"] and not ICON_DIR.exists():
+        return jsonify({"error": "No reference pictures yet. Run scraper/scrape_wiki.py first."}), 503
     result = catalog.best_mixes(seen["animals"], top_n=TOP_N)
     result["backend"] = seen["backend"]
+    result["tiles"] = seen["tiles"]
+    result["unrecognised"] = sum(1 for t in seen["tiles"] if not t["name"])
+    result["not_in_catalog"] = [n for n in seen["animals"] if not catalog.canonical(n)]
     if app.debug:
         result["raw"] = seen["raw"]
     return jsonify(result)

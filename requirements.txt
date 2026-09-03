@@ -6,3 +6,5 @@ rapidfuzz>=3.9
 pillow>=10.4
 anthropic>=0.40
 pytesseract>=0.3.13
+opencv-python-headless>=4.9
+numpy>=1.26

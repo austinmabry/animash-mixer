@@ -11,6 +11,8 @@ The wiki runs MediaWiki, so this uses its API instead of scraping pages:
      the per-animal sub-categories)
   2. for each animal, action=parse -> rendered HTML of the page
   3. find the fusion table (headers Parent / Name / Icon / Star Rank)
+  4. download each animal's lead picture to data/icons/ — the app matches
+     shelf screenshots against these, so they matter as much as the table
 
 Fusions are symmetric (Dragon+Alien == Alien+Dragon). Both directions are
 merged into one record; disagreements are kept in "conflicts" rather than
@@ -149,6 +151,77 @@ def parse_fusion_table(html: str, animal: str) -> list[dict]:
     return rows
 
 
+# -------------------------------------------------------------------- icons
+ICON_DIR = ROOT / "data" / "icons"
+
+
+def _safe(title: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_-]", "_", title)
+
+
+def page_image_urls(titles: list[str]) -> dict[str, str]:
+    """title -> URL of the page's lead image (MediaWiki PageImages), 50 titles per call."""
+    out: dict[str, str] = {}
+    for i in range(0, len(titles), 50):
+        chunk = titles[i:i + 50]
+        data = api({"action": "query", "prop": "pageimages", "piprop": "original",
+                    "titles": "|".join(chunk)})
+        for pg in data["query"].get("pages", []):
+            url = (pg.get("original") or {}).get("source")
+            if url:
+                out[pg["title"]] = url
+        time.sleep(0.3)
+    return out
+
+
+def first_content_image(html: str) -> str | None:
+    """Fallback: first real image in the page body (before the fusion table)."""
+    soup = BeautifulSoup(html, "html.parser")
+    for img in soup.find_all("img"):
+        src = img.get("data-src") or img.get("src") or ""
+        if src.startswith("http") and "/images/" in src and "revision" in src:
+            return src.split("/revision/")[0] + "/revision/latest"
+    return None
+
+
+def download_icons(animals: list[str], refresh: bool = False) -> dict[str, str]:
+    """Save each animal's reference picture as data/icons/<Animal>.png. Returns title -> file."""
+    from io import BytesIO
+
+    from PIL import Image
+
+    ICON_DIR.mkdir(parents=True, exist_ok=True)
+    print("Looking up page images ...")
+    urls = page_image_urls(animals)
+    saved: dict[str, str] = {}
+    for i, title in enumerate(animals, 1):
+        dest = ICON_DIR / (_safe(title) + ".png")
+        if dest.exists() and not refresh:
+            saved[title] = dest.name
+            continue
+        url = urls.get(title)
+        if not url:
+            try:
+                url = first_content_image(page_html(title))
+            except Exception:
+                url = None
+        if not url:
+            print(f"  [{i}/{len(animals)}] {title}: no image found", file=sys.stderr)
+            continue
+        # strip thumbnail sizing so we get the full upload
+        url = url.split("/revision/")[0] + "/revision/latest" if "/revision/" in url else url
+        try:
+            r = session.get(url, timeout=60)
+            r.raise_for_status()
+            Image.open(BytesIO(r.content)).convert("RGBA").save(dest)
+            saved[title] = dest.name
+            print(f"  [{i}/{len(animals)}] {title}: {dest.name}")
+        except Exception as e:
+            print(f"  [{i}/{len(animals)}] {title}: download failed ({e})", file=sys.stderr)
+        time.sleep(0.3)
+    return saved
+
+
 # ------------------------------------------------------------------ merging
 def _canon_map(animals: list[str]) -> dict[str, str]:
     """lowercase / de-hyphenated / de-spaced -> canonical page title"""
@@ -205,12 +278,21 @@ def main() -> int:
     ap.add_argument("--only", nargs="*", help="only these animal page titles")
     ap.add_argument("--refresh", action="store_true", help="ignore data/cache")
     ap.add_argument("--out", default=str(OUT))
+    ap.add_argument("--no-icons", action="store_true", help="skip downloading reference pictures")
+    ap.add_argument("--icons-only", action="store_true", help="only (re)download reference pictures")
     args = ap.parse_args()
 
     print("Listing Category:Animals ...")
     animals = list_animals()
     print(f"  {len(animals)} animal pages")
     targets = args.only or animals
+
+    icons: dict[str, str] = {}
+    if not args.no_icons:
+        icons = download_icons(targets, args.refresh)
+        print(f"  {len(icons)}/{len(targets)} reference pictures in {ICON_DIR}")
+        if args.icons_only:
+            return 0
 
     all_rows, missing = [], []
     for i, title in enumerate(targets, 1):
@@ -232,6 +314,7 @@ def main() -> int:
         "animal_count": len(animals),
         "fusion_count": len(merged["fusions"]),
         "animals": animals,
+        "icons": icons,
         "fusions": merged["fusions"],
         "conflicts": merged["conflicts"],
         "unmatched_parents": merged["unmatched_parents"],

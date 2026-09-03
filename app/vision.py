@@ -1,12 +1,15 @@
-"""Turn a phone photo / screenshot of the Animash shelf into animal names.
+"""Turn a screenshot of the Animash shelf into animal names.
 
-Two backends, chosen with VISION_BACKEND:
-  claude  (default) - sends the image to Claude with the full list of known
-                      animal names and asks for the ones visible. Works on
-                      icons with or without text labels.
-  ocr               - local Tesseract OCR + fuzzy match. Free and offline,
-                      but only finds animals whose *name text* is readable.
-Both return names normalised to the catalog's canonical spelling.
+Backends, chosen with VISION_BACKEND:
+  icons   (default) - local: find the white tiles, match each against the
+                      wiki reference pictures in data/icons/ (see match.py).
+                      No key, no network. Needs the scraper to have run.
+  claude            - sends the image to Claude with the list of animal
+                      names. Weak for this game (tiles carry no text, so it
+                      has to recognise the art from the name alone); kept as
+                      a fallback while data/icons is empty.
+  ocr               - Tesseract. Useless for the in-game shelf (no labels);
+                      only here for screenshots that do show names.
 """
 from __future__ import annotations
 
@@ -104,10 +107,35 @@ def ocr_text_to_names(text: str, known: list[str]) -> list[str]:
     return normalise(sorted(cands), known, cutoff=88)
 
 
+_matcher = None
+
+
+def get_matcher(known: list[str]):
+    global _matcher
+    if _matcher is None:
+        from .match import IconMatcher
+        _matcher = IconMatcher(names=known)
+    return _matcher
+
+
+def identify_with_icons(image_bytes: bytes, known: list[str]) -> tuple[list[str], list[dict]]:
+    m = get_matcher(known)
+    results, _ = m.detect(image_bytes)
+    tiles = [{
+        "box": r.box, "name": r.name, "score": round(r.score, 3), "confident": r.confident,
+        "alternatives": [{"name": n, "score": round(sc, 3)} for n, sc in r.top],
+    } for r in results]
+    names = [r.name for r in results if r.name]
+    return names, tiles   # already canonical: icon files are named after catalog titles
+
+
 def identify(image_bytes: bytes, known: list[str]) -> dict:
-    backend = os.environ.get("VISION_BACKEND", "claude").lower()
+    backend = os.environ.get("VISION_BACKEND", "icons").lower()
+    if backend == "icons":
+        names, tiles = identify_with_icons(image_bytes, known)
+        return {"backend": backend, "animals": names, "tiles": tiles, "raw": ""}
     if backend == "ocr":
         names, raw = identify_with_ocr(image_bytes, known)
     else:
         names, raw = identify_with_claude(image_bytes, known)
-    return {"backend": backend, "animals": names, "raw": raw}
+    return {"backend": backend, "animals": names, "tiles": [], "raw": raw}

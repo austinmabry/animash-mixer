@@ -6,11 +6,13 @@
     shelfCount: $("shelf-count"), addInput: $("add-input"), addBtn: $("add-btn"),
     list: $("animal-list"), results: $("results"), mixes: $("mixes"), note: $("results-note"),
     more: $("more"), reset: $("reset"), dataNote: $("data-note"), manual: $("manual"),
-    cam: $("cam"), pick: $("pick"),
+    cam: $("cam"), pick: $("pick"), pickMore: $("pick-more"),
+    unsure: $("unsure"), unsureChips: $("unsure-chips"),
   };
 
   let known = [];
   let shelf = [];
+  let unsure = [];       // tiles the matcher couldn't call: [{alternatives:[{name,score}]}]
   let topN = 5;
 
   // ---------------------------------------------------------------- boot
@@ -21,12 +23,14 @@
   fetch("/api/health").then((r) => r.json()).then((h) => {
     el.dataNote.textContent = h.sample_data
       ? "Running on sample data (Dragon only). Run the scraper to load every animal."
-      : `${h.fusions.toLocaleString()} fusions across ${h.animals} animals · updated ${(h.scraped_at || "").slice(0, 10)}`;
+      : `${h.fusions.toLocaleString()} fusions across ${h.animals} animals, ${h.icons} pictures · updated ${(h.scraped_at || "").slice(0, 10)}`;
+    if (h.vision_backend === "icons" && !h.icons) el.dataNote.textContent += " · No reference pictures yet: run the scraper.";
   });
 
   // ---------------------------------------------------------------- input
   el.cam.addEventListener("change", onFile);
   el.pick.addEventListener("change", onFile);
+  el.pickMore.addEventListener("change", onFile);
   el.manual.addEventListener("click", () => { showShelf(); el.addInput.focus(); });
   el.reset.addEventListener("click", resetAll);
   el.addBtn.addEventListener("click", addFromInput);
@@ -46,11 +50,16 @@
       const r = await fetch("/api/analyze", { method: "POST", body });
       const data = await r.json();
       if (!r.ok) throw new Error(data.error || `Server said ${r.status}`);
-      shelf = data.available;
+      const before = shelf.length;
+      for (const n of data.available) if (!shelf.includes(n)) shelf.push(n);
+      for (const t of data.tiles || []) if (!t.name && t.alternatives && t.alternatives.length) unsure.push(t);
       topN = 5;
       showShelf();
-      renderMixes(data);
-      if (!shelf.length) showError("No animals recognised in that picture. Try a clearer shot of the shelf, or add them by name below.");
+      if (before) { await refreshMixes(); } else { renderMixes(data); }
+      const tiles = (data.tiles || []).length;
+      if (!tiles) showError("No animal tiles found in that picture. Screenshot the shelf with the white circles showing.");
+      else if (!data.available.length) showError(`Found ${tiles} tiles but couldn't name any. Add them by name below, or check the reference pictures.`);
+      else if ((data.not_in_catalog || []).length) showError(`Recognised but not in the fusion catalog yet: ${data.not_in_catalog.join(", ")}.`);
     } catch (err) {
       showError(err.message);
       showShelf();
@@ -118,6 +127,33 @@
       `<li class="chip">${esc(n)}<button type="button" aria-label="Remove ${esc(n)}" data-name="${esc(n)}">×</button></li>`
     ).join("");
     el.chips.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => removeAnimal(b.dataset.name)));
+    renderUnsure();
+  }
+
+  function renderUnsure() {
+    unsure = unsure.filter((t) => !t.alternatives.some((a) => shelf.includes(a.name)));
+    el.unsure.hidden = !unsure.length;
+    el.unsureChips.innerHTML = unsure.map((t, i) =>
+      `<li class="chip maybe" data-i="${i}"><span class="q">?</span> ${esc(t.alternatives[0].name)}</li>`).join("");
+    el.unsureChips.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => openPicker(+c.dataset.i)));
+  }
+
+  function openPicker(i) {
+    const t = unsure[i];
+    const chip = el.unsureChips.querySelector(`[data-i="${i}"]`);
+    if (!chip || chip.querySelector(".picker")) return;
+    const div = document.createElement("div");
+    div.className = "picker";
+    div.innerHTML = t.alternatives.map((a) => `<button type="button" data-name="${esc(a.name)}">${esc(a.name)}</button>`).join("")
+      + `<button type="button" class="no">None of these</button>`;
+    chip.appendChild(div);
+    div.querySelectorAll("button").forEach((b) => b.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (b.dataset.name && !shelf.includes(b.dataset.name)) shelf.push(b.dataset.name);
+      unsure.splice(i, 1);
+      showShelf();
+      refreshMixes();
+    }));
   }
 
   function renderMixes(data) {
@@ -145,7 +181,7 @@
   }
 
   function resetAll() {
-    shelf = []; topN = 5;
+    shelf = []; unsure = []; topN = 5;
     el.snap.hidden = false; el.status.hidden = true; el.shelf.hidden = true; el.results.hidden = true;
     el.preview.hidden = true; el.reset.hidden = true; hideError();
     window.scrollTo({ top: 0 });

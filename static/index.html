@@ -14,7 +14,7 @@
 <main class="wrap">
   <header class="top">
     <h1>Animash Mixer</h1>
-    <p class="lede">Snap your animal shelf. Get the five best mixes.</p>
+    <p class="lede">Screenshot your animal shelf. Get the five best mixes.</p>
   </header>
 
   <section class="snap" id="snap">
@@ -28,6 +28,7 @@
       Pick a screenshot
       <input type="file" accept="image/*" id="pick" hidden>
     </label>
+    <p class="hint">Scroll the shelf and screenshot again if it doesn't all fit — you can add more after.</p>
     <button class="linkish" id="manual" type="button">Or type the animals in</button>
   </section>
 
@@ -46,11 +47,20 @@
       <span class="count" id="shelf-count"></span>
     </div>
     <ul class="chips" id="chips" aria-label="Animals you can mix"></ul>
+    <div class="unsure" id="unsure" hidden>
+      <p>Not sure about these — tap to pick:</p>
+      <ul class="chips" id="unsure-chips"></ul>
+    </div>
     <div class="add">
       <input id="add-input" list="animal-list" placeholder="Add an animal the camera missed" autocomplete="off" enterkeyhint="done">
       <datalist id="animal-list"></datalist>
       <button class="btn btn-small" id="add-btn" type="button">Add</button>
     </div>
+    <label class="btn btn-ghost btn-add-shot">
+      <span class="btn-icon" aria-hidden="true">🖼️</span>
+      Add another screenshot
+      <input type="file" accept="image/*" id="pick-more" hidden>
+    </label>
   </section>
 
   <section class="results" id="results" hidden>
