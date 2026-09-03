@@ -111,6 +111,7 @@
 
   function showShelf() {
     el.snap.hidden = true;
+    el.reset.hidden = false;
     el.shelf.hidden = false;
     el.shelfCount.textContent = shelf.length ? `${shelf.length} animal${shelf.length === 1 ? "" : "s"}` : "";
     el.chips.innerHTML = shelf.map((n) =>
@@ -129,7 +130,7 @@
       return;
     }
     el.mixes.innerHTML = mixes.map((m, i) => `
-      <li class="mix${i === 0 ? " top" : ""}">
+      <li class="mix${i === 0 ? " best" : ""}">
         <div class="stars">${m.stars}<small>stars</small></div>
         <div class="mix-body">
           <div class="mix-name">${esc(m.name || "Unnamed fusion")}</div>
@@ -146,7 +147,7 @@
   function resetAll() {
     shelf = []; topN = 5;
     el.snap.hidden = false; el.status.hidden = true; el.shelf.hidden = true; el.results.hidden = true;
-    el.preview.hidden = true; hideError();
+    el.preview.hidden = true; el.reset.hidden = true; hideError();
     window.scrollTo({ top: 0 });
   }
 

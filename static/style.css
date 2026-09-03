@@ -110,7 +110,7 @@ button, input { font: inherit; color: inherit; }
 .mix-parents { color: var(--ink-soft); font-weight: 700; }
 .mix-tier { color: var(--gold-deep); font-size: 14px; font-weight: 700; }
 .mix img { width: 60px; height: 60px; object-fit: contain; border-radius: 12px; background: var(--bg); }
-.mix.top .stars { transform: scale(1.06); }
+.mix.best .stars { transform: scale(1.06); }
 .note { margin: 12px 0 0; color: var(--ink-soft); font-size: 15px; }
 .empty { padding: 18px; border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); }
 
