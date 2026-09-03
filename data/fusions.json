@@ -1,8 +1,8 @@
 {
- "scraped_at": "2026-09-03T17:49:00+00:00",
+ "scraped_at": "2026-09-03T18:14:18+00:00",
  "source": "https://the-unofficial-animash.fandom.com",
  "animal_count": 401,
- "fusion_count": 4436,
+ "fusion_count": 4440,
  "animals": [
   "Aardvark",
   "Accordion",
@@ -732,8 +732,9 @@
    "name": "Chainwyrm",
    "stars": 14,
    "tier": "Theta Supreme",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/fd/Chainwyrm.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/fd/Chainwyrm.png/revision/latest?cb=20251109102548",
    "seen_on": [
+    "fusion page",
     "Bicycle",
     "Dragon"
    ]
@@ -844,8 +845,9 @@
    "name": "Dunewarp",
    "stars": 13,
    "tier": "Zeta Supreme",
-   "icon": null,
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b5/Site-background-light/revision/latest?cb=20240212200240",
    "seen_on": [
+    "fusion page",
     "Jerboa"
    ]
   },
@@ -2031,8 +2033,9 @@
    "name": "Brawnstride",
    "stars": 10,
    "tier": "Supreme",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/6e/Brawnstride.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/6e/Brawnstride.png/revision/latest?cb=20250211084851",
    "seen_on": [
+    "fusion page",
     "Brontosaurus"
    ]
   },
@@ -4932,8 +4935,9 @@
    "name": "Flamebow",
    "stars": 9,
    "tier": "Divine",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/20/Flamebow.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/20/Flamebow.png/revision/latest?cb=20250228094629",
    "seen_on": [
+    "fusion page",
     "Hot Sauce",
     "Rainbow"
    ]
@@ -4980,8 +4984,9 @@
    "name": "Chillmodo",
    "stars": 9,
    "tier": "Divine",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/97/Chillmodo.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/97/Chillmodo.jpg/revision/latest?cb=20250227131923",
    "seen_on": [
+    "fusion page",
     "Ice",
     "Komodo Dragon"
    ]
@@ -6999,8 +7004,9 @@
    "name": "Bladebreath",
    "stars": 8,
    "tier": "Mythical",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/1/18/Bladebreath.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/1/18/Bladebreath.png/revision/latest?cb=20251109111334",
    "seen_on": [
+    "fusion page",
     "Blender",
     "Dragon"
    ]
@@ -7185,8 +7191,9 @@
    "name": "Carrotforce",
    "stars": 8,
    "tier": "Mythical",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/9a/Carrotforce.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/9a/Carrotforce.jpg/revision/latest?cb=20250223114246",
    "seen_on": [
+    "fusion page",
     "Bunny",
     "Superhero"
    ]
@@ -7636,8 +7643,9 @@
    "name": "Dreadcoral",
    "stars": 8,
    "tier": "Mythical",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4b/Dreadcoral.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4b/Dreadcoral.png/revision/latest?cb=20250309000422",
    "seen_on": [
+    "fusion page",
     "Coral",
     "Vampire"
    ]
@@ -7683,8 +7691,9 @@
    "name": "Kaptain Korn",
    "stars": 8,
    "tier": "Mythical",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4a/Kaptain_Korn.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/25/Kaptain_Corn.png/revision/latest?cb=20250227102658",
    "seen_on": [
+    "fusion page",
     "Corn",
     "Superhero"
    ]
@@ -8535,8 +8544,9 @@
    "name": "Firestrike",
    "stars": 8,
    "tier": "Mythical",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/69/Firestrike.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/69/Firestrike.jpg/revision/latest?cb=20250211075822",
    "seen_on": [
+    "fusion page",
     "Dragon",
     "Samurai Warrior"
    ]
@@ -9286,8 +9296,9 @@
    "name": "Hauntrack",
    "stars": 8,
    "tier": "Mythical",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/9b/Hauntrack.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/9b/Hauntrack.png/revision/latest?cb=20250212034330",
    "seen_on": [
+    "fusion page",
     "Ghost",
     "Train"
    ]
@@ -11090,18 +11101,6 @@
    "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/6a/Terraraptor.png/revision/latest",
    "seen_on": [
     "T-Rex"
-   ]
-  },
-  {
-   "a": "Ruby",
-   "b": "Stingray",
-   "name": "Rubiray",
-   "stars": 8,
-   "tier": "Mythical",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/30/Rubiray.png/revision/latest",
-   "seen_on": [
-    "Ruby",
-    "Stingray"
    ]
   },
   {
@@ -15833,8 +15832,9 @@
    "name": "Umamigon",
    "stars": 7,
    "tier": "Legendary",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/c8/Umamigon.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/c8/Umamigon.jpg/revision/latest?cb=20250209121329",
    "seen_on": [
+    "fusion page",
     "Dragon"
    ]
   },
@@ -17073,8 +17073,9 @@
    "name": "Bearblade",
    "stars": 7,
    "tier": "Legendary",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d3/Bearblade.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d3/Bearblade.jpg/revision/latest?cb=20250215001024",
    "seen_on": [
+    "fusion page",
     "Grizzly Bear",
     "Samurai Warrior"
    ]
@@ -19306,8 +19307,9 @@
    "name": "Scarlethoof",
    "stars": 7,
    "tier": "Legendary",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/72/Scarlethoof.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/72/Scarlethoof.jpg/revision/latest?cb=20250209083111",
    "seen_on": [
+    "fusion page",
     "Ruby"
    ]
   },
@@ -19379,8 +19381,9 @@
    "name": "Poisonedge",
    "stars": 7,
    "tier": "Legendary",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/9c/Poisonedge.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/9/9c/Poisonedge.jpg/revision/latest?cb=20250215001133",
    "seen_on": [
+    "fusion page",
     "Samurai Warrior",
     "Spider"
    ]
@@ -19557,8 +19560,9 @@
    "name": "Steamsnail",
    "stars": 7,
    "tier": "Legendary",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/aa/Steamsnail.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/aa/Steamsnail.png/revision/latest?cb=20250213025813",
    "seen_on": [
+    "fusion page",
     "Snail",
     "Train"
    ]
@@ -21590,8 +21594,9 @@
    "name": "Holihop",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/44/Holihop.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/44/Holihop.png/revision/latest?cb=20250807111241",
    "seen_on": [
+    "fusion page",
     "Candycane"
    ]
   },
@@ -22009,8 +22014,9 @@
    "name": "Cavecrunch",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/a2/Cavecrunch.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/a2/Cavecrunch.png/revision/latest?cb=20250222061029",
    "seen_on": [
+    "fusion page",
     "Caveman",
     "Gingerbread Man"
    ]
@@ -22173,8 +22179,9 @@
    "name": "Yeetah",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/8/83/Yeetah.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/8/83/Yeetah.jpg/revision/latest?cb=20250720112037",
    "seen_on": [
+    "fusion page",
     "Cheetah",
     "Yeti"
    ]
@@ -23120,8 +23127,9 @@
    "name": "Jinxweed",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b2/Jinxweed.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b2/Jinxweed.png/revision/latest?cb=20250302082000",
    "seen_on": [
+    "fusion page",
     "Curse",
     "Seaweed"
    ]
@@ -23317,8 +23325,9 @@
    "name": "Mister Mischievous",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/67/Mister_Mischievous.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/67/Mister_Mischievous.jpg/revision/latest?cb=20250223114316",
    "seen_on": [
+    "fusion page",
     "Superhero"
    ]
   },
@@ -24404,8 +24413,9 @@
    "name": "Powerhop",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/31/Powerhop.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/31/Powerhop.jpg/revision/latest?cb=20250214234254",
    "seen_on": [
+    "fusion page",
     "Frog",
     "Weightlifting Champion"
    ]
@@ -24682,8 +24692,9 @@
    "name": "Treat Trolley",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/cb/Treat_Trolley.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/cb/Treat_Trolley.png/revision/latest?cb=20250222054033",
    "seen_on": [
+    "fusion page",
     "Gingerbread Man",
     "Train"
    ]
@@ -25410,8 +25421,9 @@
    "name": "Conductress",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/cd/Conductress.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/cd/Conductress.png/revision/latest?cb=20250302115024",
    "seen_on": [
+    "fusion page",
     "Human Woman",
     "Train"
    ]
@@ -26101,8 +26113,9 @@
    "name": "Mantimatch",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/72/Mantimatch.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/72/Mantimatch.png/revision/latest?cb=20250810113605",
    "seen_on": [
+    "fusion page",
     "Luchador"
    ]
   },
@@ -26317,8 +26330,9 @@
    "name": "Starrypede",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d5/Starrypede.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d5/Starrypede.jpg/revision/latest?cb=20250613200324",
    "seen_on": [
+    "fusion page",
     "Millipede",
     "Starfish"
    ]
@@ -26799,8 +26813,9 @@
    "name": "Zombanda",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/7d/Zombanda.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/7d/Zombanda.jpg/revision/latest?cb=20250520112051",
    "seen_on": [
+    "fusion page",
     "Zombie"
    ]
   },
@@ -27067,8 +27082,9 @@
    "name": "Mantazard",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/c6/Mantazard.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/c6/Mantazard.png/revision/latest?cb=20250224085013",
    "seen_on": [
+    "fusion page",
     "Uranium"
    ]
   },
@@ -27484,6 +27500,19 @@
   },
   {
    "a": "Ruby",
+   "b": "Stingray",
+   "name": "Rubiray",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/30/Rubiray.png/revision/latest?cb=20250225092935",
+   "seen_on": [
+    "fusion page",
+    "Ruby",
+    "Stingray"
+   ]
+  },
+  {
+   "a": "Ruby",
    "b": "Warthog",
    "name": "Jewelhog",
    "stars": 6,
@@ -27681,8 +27710,9 @@
    "name": "Blobfreight",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/e/ee/Blobfreight.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/e/ee/Blobfreight.png/revision/latest?cb=20250216084508",
    "seen_on": [
+    "fusion page",
     "Slime",
     "Train"
    ]
@@ -27780,8 +27810,9 @@
    "name": "Tusked Titan",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/ce/Tusked_Titan.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/ce/Tusked_Titan.jpg/revision/latest?cb=20250223114346",
    "seen_on": [
+    "fusion page",
     "Superhero",
     "Warthog"
    ]
@@ -27792,8 +27823,9 @@
    "name": "Treerex",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/20/Treerex.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/20/Treerex.jpg/revision/latest?cb=20250223222707",
    "seen_on": [
+    "fusion page",
     "Tree"
    ]
   },
@@ -27892,8 +27924,9 @@
    "name": "Traffurtle",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/22/Traffurtle.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/22/Traffurtle.jpg/revision/latest?cb=20250210031406",
    "seen_on": [
+    "fusion page",
     "Turtle"
    ]
   },
@@ -27940,8 +27973,9 @@
    "name": "Radfrost",
    "stars": 6,
    "tier": "Ultra Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/e/e6/Radfrost.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/e/e6/Radfrost.jpg/revision/latest?cb=20250224083857",
    "seen_on": [
+    "fusion page",
     "Uranium"
    ]
   },
@@ -30536,8 +30570,9 @@
    "name": "Tidebarb",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/5/54/Tidebarb.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/5/54/Tidebarb.png/revision/latest?cb=20250222041955",
    "seen_on": [
+    "fusion page",
     "Cactus",
     "Mermaid"
    ]
@@ -31034,8 +31069,9 @@
    "name": "Zapfowl",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/69/Zapfowl.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/69/Zapfowl.jpg/revision/latest?cb=20250308005702",
    "seen_on": [
+    "fusion page",
     "Chicken"
    ]
   },
@@ -31128,8 +31164,9 @@
    "name": "Wrapsnap",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/5/55/Wrapsnap.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/5/55/Wrapsnap.png/revision/latest?cb=20250222064557",
    "seen_on": [
+    "fusion page",
     "Christmas Gift",
     "Crocodile"
    ]
@@ -32408,17 +32445,6 @@
   },
   {
    "a": "Dragonfly",
-   "b": "Fork",
-   "name": "Flyprong",
-   "stars": 5,
-   "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/79/Flyprong.gif.gif/revision/latest?cb=20251216224128",
-   "seen_on": [
-    "fusion page"
-   ]
-  },
-  {
-   "a": "Dragonfly",
    "b": "Ghost",
    "name": "Ghostwing",
    "stars": 5,
@@ -32588,8 +32614,9 @@
    "name": "Dwarfbright",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/33/Dwarfbright.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/33/Dwarfbright.jpg/revision/latest?cb=20250209084121",
    "seen_on": [
+    "fusion page",
     "Ruby"
    ]
   },
@@ -32769,17 +32796,6 @@
    ]
   },
   {
-   "a": "Elctricity",
-   "b": "Human Woman",
-   "name": "Wattwoman",
-   "stars": 5,
-   "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/aa/Wattwoman.jpg/revision/latest",
-   "seen_on": [
-    "Human Woman"
-   ]
-  },
-  {
    "a": "Electricity",
    "b": "Garbage Truck",
    "name": "Trashvolt",
@@ -32796,9 +32812,11 @@
    "name": "Wattwoman",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/aa/Wattwoman.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/aa/Wattwoman.jpg/revision/latest?cb=20250813070333",
    "seen_on": [
-    "Electricity"
+    "fusion page",
+    "Electricity",
+    "Human Woman"
    ]
   },
   {
@@ -33265,6 +33283,17 @@
    ]
   },
   {
+   "a": "Frog",
+   "b": "Zombie",
+   "name": "Frombie",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/8/8f/Frombie.jpg/revision/latest?cb=20250218080622",
+   "seen_on": [
+    "fusion page"
+   ]
+  },
+  {
    "a": "Garbage Truck",
    "b": "Octopus",
    "name": "Trashtopus",
@@ -33527,6 +33556,17 @@
    ]
   },
   {
+   "a": "Giant Eyeball",
+   "b": "Water",
+   "name": "Aqueye",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/8/85/Aqueye_2.jpg/revision/latest?cb=20240607154955",
+   "seen_on": [
+    "fusion page"
+   ]
+  },
+  {
    "a": "Gingerbread Man",
    "b": "Medusa",
    "name": "Hisspice",
@@ -33544,8 +33584,9 @@
    "name": "Cinnamoth",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/cb/Cinnamoth.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/c/cb/Cinnamoth.png/revision/latest?cb=20250212030135",
    "seen_on": [
+    "fusion page",
     "Gingerbread Man",
     "Moth"
    ]
@@ -33584,6 +33625,17 @@
    "seen_on": [
     "Glitch",
     "Hedgehog"
+   ]
+  },
+  {
+   "a": "Glitch",
+   "b": "Luchador",
+   "name": "Fightfault",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/48/Fightfault.jpg/revision/latest?cb=20260108123218",
+   "seen_on": [
+    "fusion page"
    ]
   },
   {
@@ -33768,18 +33820,8 @@
    "tier": "Rare",
    "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b3/Grimleaf.png/revision/latest",
    "seen_on": [
+    "Grim Reaper",
     "Venus Fly Trap"
-   ]
-  },
-  {
-   "a": "Grim Reaper",
-   "b": "Venus Fly Trapr",
-   "name": "Grimleaf",
-   "stars": 5,
-   "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b3/Grimleaf.png/revision/latest",
-   "seen_on": [
-    "Grim Reaper"
    ]
   },
   {
@@ -34155,8 +34197,9 @@
    "name": "Dieseldog",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/f8/Dieseldog.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/f8/Dieseldog.png/revision/latest?cb=20250213025104",
    "seen_on": [
+    "fusion page",
     "Husky",
     "Train"
    ]
@@ -34328,8 +34371,9 @@
    "name": "Frostgill",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/8/87/Frostgill_current.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/8/87/Frostgill_current.jpg/revision/latest?cb=20250503132931",
    "seen_on": [
+    "fusion page",
     "Ice",
     "Salmon"
    ]
@@ -34572,8 +34616,9 @@
    "name": "Stingsnap",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/3f/Stingsnap.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/3f/Stingsnap.png/revision/latest?cb=20250227124528",
    "seen_on": [
+    "fusion page",
     "Jellyfish",
     "Venus Fly Trap"
    ]
@@ -34834,8 +34879,9 @@
    "name": "Saucelion",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/1/1e/Saucelion.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/1/1e/Saucelion.jpg/revision/latest?cb=20250209005732",
    "seen_on": [
+    "fusion page",
     "Lion",
     "Pizza"
    ]
@@ -35318,8 +35364,9 @@
    "name": "Borjewel",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/70/Borjewel.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/7/70/Borjewel.jpg/revision/latest?cb=20250806111626",
    "seen_on": [
+    "fusion page",
     "Mole",
     "Ruby"
    ]
@@ -35539,18 +35586,6 @@
    "seen_on": [
     "Ninja",
     "Pirate"
-   ]
-  },
-  {
-   "a": "Ninja",
-   "b": "Plasma",
-   "name": "Valenstrike",
-   "stars": 5,
-   "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4f/Valenstrike.png/revision/latest",
-   "seen_on": [
-    "Ninja",
-    "Plasma"
    ]
   },
   {
@@ -35853,8 +35888,9 @@
    "name": "Glaciguard",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d4/Glaciguard.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d4/Glaciguard.jpg/revision/latest?cb=20250215001102",
    "seen_on": [
+    "fusion page",
     "Penguin",
     "Samurai Warrior"
    ]
@@ -35904,8 +35940,9 @@
    "name": "Swordpine",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/f3/Swordpine.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/f3/Swordpine.png/revision/latest?cb=20250215013423",
    "seen_on": [
+    "fusion page",
     "Samurai Warrior"
    ]
   },
@@ -36311,6 +36348,17 @@
    ]
   },
   {
+   "a": "Rock",
+   "b": "Yeti",
+   "name": "Yeticrag",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d5/Yeticrag.jpg/revision/latest?cb=20250307061455",
+   "seen_on": [
+    "fusion page"
+   ]
+  },
+  {
    "a": "Ruby",
    "b": "Seaweed",
    "name": "Crystalweed",
@@ -36631,8 +36679,9 @@
    "name": "Arachnojack",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/3b/Arachnojack.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/3/3b/Arachnojack.jpg/revision/latest?cb=20250802220939",
    "seen_on": [
+    "fusion page",
     "Spider",
     "Weightlifting Champion"
    ]
@@ -36878,8 +36927,9 @@
    "name": "Gripglow",
    "stars": 5,
    "tier": "Rare",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/24/Gripglow.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/24/Gripglow.jpg/revision/latest?cb=20260429003358",
    "seen_on": [
+    "fusion page",
     "Weightlifting Champion"
    ]
   },
@@ -40749,8 +40799,9 @@
    "name": "Huntbunny",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/6e/Huntbunny.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/6e/Huntbunny.png/revision/latest?cb=20250222043138",
    "seen_on": [
+    "fusion page",
     "Caveman"
    ]
   },
@@ -43402,8 +43453,9 @@
    "name": "Chonkey",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/0/0b/Chonkey.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/0/0b/Chonkey.jpg/revision/latest?cb=20250209103028",
    "seen_on": [
+    "fusion page",
     "Cookie",
     "Monkey"
    ]
@@ -44925,8 +44977,9 @@
    "name": "Hopthorn",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/69/Hopthorn.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/6/69/Hopthorn.png/revision/latest?cb=20250726034927",
    "seen_on": [
+    "fusion page",
     "Durian",
     "Grasshopper"
    ]
@@ -45409,8 +45462,9 @@
    "name": "Pinkipede",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d3/Pinkipede.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/d/d3/Pinkipede.jpg/revision/latest?cb=20250218063019",
    "seen_on": [
+    "fusion page",
     "Millipede"
    ]
   },
@@ -45678,6 +45732,17 @@
   },
   {
    "a": "Frog",
+   "b": "Ramen",
+   "name": "Hop Pot",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/a5/Hop_Pot.jpg/revision/latest?cb=20250218080503",
+   "seen_on": [
+    "fusion page"
+   ]
+  },
+  {
+   "a": "Frog",
    "b": "Spider",
    "name": "Spidrog",
    "stars": 4,
@@ -45874,8 +45939,9 @@
    "name": "Ghoulbore",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/a6/Ghoulbore.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/a6/Ghoulbore.jpg/revision/latest?cb=20250225111646",
    "seen_on": [
+    "fusion page",
     "Ghost",
     "Mole"
    ]
@@ -46788,8 +46854,9 @@
    "name": "Glowfly",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/a6/Glowfly.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/a/a6/Glowfly.jpg/revision/latest?cb=20250224083805",
    "seen_on": [
+    "fusion page",
     "Housefly",
     "Uranium"
    ]
@@ -46823,8 +46890,9 @@
    "name": "Trackman",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4e/Trackman.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4e/Trackman.png/revision/latest?cb=20250302115010",
    "seen_on": [
+    "fusion page",
     "Human Man",
     "Train"
    ]
@@ -47465,8 +47533,9 @@
    "name": "Rockfluencer",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/ba/Rockfluencer.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/ba/Rockfluencer.png/revision/latest?cb=20250225093609",
    "seen_on": [
+    "fusion page",
     "Livestreamer"
    ]
   },
@@ -47748,8 +47817,9 @@
    "name": "Vineclaw",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4e/Vineclaw.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4e/Vineclaw.jpg/revision/latest?cb=20250301020851",
    "seen_on": [
+    "fusion page",
     "Mole",
     "Watermelon"
    ]
@@ -47773,8 +47843,9 @@
    "name": "Vultunky",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4c/Vultunky.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4c/Vultunky.jpg/revision/latest?cb=20250811222512",
    "seen_on": [
+    "fusion page",
     "Monkey",
     "Vulture"
    ]
@@ -48870,6 +48941,17 @@
    ]
   },
   {
+   "a": "Praying Mantis",
+   "b": "Tree",
+   "name": "Mantree",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/e/e5/Mantree.png/revision/latest?cb=20250221070332",
+   "seen_on": [
+    "fusion page"
+   ]
+  },
+  {
    "a": "Princess",
    "b": "Pro Boxer",
    "name": "Aristohit",
@@ -49691,8 +49773,9 @@
    "name": "Powerplunge",
    "stars": 4,
    "tier": "Unique",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/f3/Powerplunge.jpg/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/f/f3/Powerplunge.jpg/revision/latest?cb=20250802221017",
    "seen_on": [
+    "fusion page",
     "Weightlifting Champion"
    ]
   },
@@ -52452,11 +52535,12 @@
   {
    "a": "Cockroach",
    "b": "Narwhal",
-   "name": "Roachwale",
+   "name": "Roachwhale",
    "stars": 3,
    "tier": "Common",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b5/Roachwhale.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b5/Roachwhale.png/revision/latest?cb=20250221085702",
    "seen_on": [
+    "fusion page",
     "Narwhal"
    ]
   },
@@ -53236,6 +53320,17 @@
   },
   {
    "a": "Dragonfly",
+   "b": "Fork",
+   "name": "Ferroket",
+   "stars": 3,
+   "tier": "Common",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/2/2b/Ferroket.gif.gif/revision/latest?cb=20251217200418",
+   "seen_on": [
+    "fusion page"
+   ]
+  },
+  {
+   "a": "Dragonfly",
    "b": "Hummingbird",
    "name": "Hummingstorm",
    "stars": 3,
@@ -53511,8 +53606,9 @@
    "name": "Forktail",
    "stars": 3,
    "tier": "Common",
-   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b3/Forktail.png/revision/latest",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/b/b3/Forktail.png/revision/latest?cb=20250301015106",
    "seen_on": [
+    "fusion page",
     "Monkey"
    ]
   },
@@ -54442,6 +54538,19 @@
    ]
   },
   {
+   "a": "Ninja",
+   "b": "Plasma",
+   "name": "Valenstrike",
+   "stars": 3,
+   "tier": "Common",
+   "icon": "https://static.wikia.nocookie.net/the-unofficial-animash/images/4/4f/Valenstrike.png/revision/latest?cb=20250730123617",
+   "seen_on": [
+    "fusion page",
+    "Ninja",
+    "Plasma"
+   ]
+  },
+  {
    "a": "Octopus",
    "b": "Tree",
    "name": "Octree",
@@ -55217,13 +55326,13 @@
     "Fork"
    ],
    "kept": {
-    "name": "Flyprong",
-    "stars": 5,
+    "name": "Ferroket",
+    "stars": 3,
     "from": "fusion page"
    },
    "other": {
-    "name": "Ferroket",
-    "stars": 3,
+    "name": "Flyprong",
+    "stars": 5,
     "from": "fusion page"
    }
   },
@@ -55565,6 +55674,54 @@
   },
   {
    "pair": [
+    "Cockroach",
+    "Narwhal"
+   ],
+   "kept": {
+    "name": "Roachwhale",
+    "stars": 3,
+    "from": "fusion page"
+   },
+   "other": {
+    "name": "Roachwale",
+    "stars": 3,
+    "from": "Narwhal"
+   }
+  },
+  {
+   "pair": [
+    "Ninja",
+    "Plasma"
+   ],
+   "kept": {
+    "name": "Valenstrike",
+    "stars": 3,
+    "from": "fusion page"
+   },
+   "other": {
+    "name": "Valenstrike",
+    "stars": 5,
+    "from": "Ninja"
+   }
+  },
+  {
+   "pair": [
+    "Ninja",
+    "Plasma"
+   ],
+   "kept": {
+    "name": "Valenstrike",
+    "stars": 3,
+    "from": "fusion page"
+   },
+   "other": {
+    "name": "Valenstrike",
+    "stars": 5,
+    "from": "Plasma"
+   }
+  },
+  {
+   "pair": [
     "Black Hole",
     "Raccoon"
    ],
@@ -55624,6 +55781,22 @@
    "other": {
     "name": "Twinklewhale",
     "stars": 3,
+    "from": "Ruby"
+   }
+  },
+  {
+   "pair": [
+    "Ruby",
+    "Stingray"
+   ],
+   "kept": {
+    "name": "Rubiray",
+    "stars": 6,
+    "from": "fusion page"
+   },
+   "other": {
+    "name": "Rubiray",
+    "stars": 8,
     "from": "Ruby"
    }
   },
@@ -55693,13 +55866,29 @@
   },
   {
    "pair": [
+    "Ruby",
+    "Stingray"
+   ],
+   "kept": {
+    "name": "Rubiray",
+    "stars": 6,
+    "from": "fusion page"
+   },
+   "other": {
+    "name": "Rubiray",
+    "stars": 8,
+    "from": "Stingray"
+   }
+  },
+  {
+   "pair": [
     "Corn",
     "Superhero"
    ],
    "kept": {
     "name": "Kaptain Korn",
     "stars": 8,
-    "from": "Corn"
+    "from": "fusion page"
    },
    "other": {
     "name": "Kaptain Korn",
@@ -55788,10 +55977,11 @@
    }
   }
  ],
- "unmatched_parents": [
-  "Elctricity",
-  "Venus Fly Trapr"
- ],
+ "unmatched_parents": [],
+ "corrected_parents": {
+  "Elctricity": "Electricity",
+  "Venus Fly Trapr": "Venus Fly Trap"
+ },
  "pages_without_table": [
   "Aardvark",
   "Accordion",
@@ -55922,16 +56112,21 @@
   "Zebu"
  ],
  "fusion_pages_unusable": [
-  "Chargepince",
+  "Politician",
   "Cheesyena",
-  "Diplomask",
-  "Dwarfox",
+  "Skypaw",
+  "Crestdrake",
   "Infinibite",
-  "Spearbill",
+  "Velociraptor",
   "Shockloth",
-  "Stormlion",
-  "Shoklaw",
   "Reptilifin",
-  "Slothangutan"
+  "Stormlion",
+  "Chargepince",
+  "Dwarfox",
+  "Diplomask",
+  "Slothangutan",
+  "Toilet",
+  "Spearbill",
+  "Shoklaw"
  ]
 }
