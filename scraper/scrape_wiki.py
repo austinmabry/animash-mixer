@@ -359,14 +359,29 @@ def _canon_map(animals: list[str]) -> dict[str, str]:
     return m
 
 
+FUZZY_CUTOFF = 90   # a parent name this close to an animal page is treated as a typo
+
+
+def resolve_parent(name: str, animals: list[str], canon: dict[str, str]) -> tuple[str | None, bool]:
+    """(canonical animal, was_fuzzy). 'Elctricity' -> ('Electricity', True); no match -> (None, False)."""
+    key = name.lower()
+    exact = canon.get(key) or canon.get(key.replace("-", " ")) or canon.get(key.replace(" ", ""))
+    if exact:
+        return exact, False
+    from rapidfuzz import fuzz, process
+    m = process.extractOne(name, animals, scorer=fuzz.ratio, score_cutoff=FUZZY_CUTOFF)
+    return (m[0], True) if m else (None, False)
+
+
 def merge(all_rows: list[dict], animals: list[str]) -> dict:
     canon = _canon_map(animals)
     fusions: dict[tuple, dict] = {}
-    conflicts, unmatched = [], set()
+    conflicts, unmatched, corrected = [], set(), {}
 
     for r in all_rows:
-        b_key = r["b"].lower()
-        b = canon.get(b_key) or canon.get(b_key.replace("-", " ")) or canon.get(b_key.replace(" ", ""))
+        b, fuzzy = resolve_parent(r["b"], animals, canon)
+        if fuzzy:
+            corrected[r["b"]] = b
         if not b:
             unmatched.add(r["b"])
             b = r["b"]
@@ -397,6 +412,7 @@ def merge(all_rows: list[dict], animals: list[str]) -> dict:
         "fusions": sorted(fusions.values(), key=lambda f: (-f["stars"], f["a"].lower(), f["b"].lower())),
         "conflicts": conflicts,
         "unmatched_parents": sorted(unmatched, key=str.lower),
+        "corrected_parents": dict(sorted(corrected.items())),
     }
 
 
@@ -467,6 +483,7 @@ def main() -> int:
         "fusions": merged["fusions"],
         "conflicts": merged["conflicts"],
         "unmatched_parents": merged["unmatched_parents"],
+        "corrected_parents": merged["corrected_parents"],
         "pages_without_table": missing,
         "fusion_pages_unusable": odd_fusion_pages,
     }
@@ -477,6 +494,8 @@ def main() -> int:
     print(f"  fusions: {out['fusion_count']}   conflicts: {len(out['conflicts'])}   "
           f"unmatched parents: {len(out['unmatched_parents'])}   animal pages w/o table: {len(missing)}   "
           f"fusion pages unusable: {len(odd_fusion_pages)}")
+    if out["corrected_parents"]:
+        print("  wiki typos corrected:", ", ".join(f"{k} -> {v}" for k, v in out["corrected_parents"].items()))
     if out["unmatched_parents"]:
         print("  unmatched parent names (check spelling on wiki):", ", ".join(out["unmatched_parents"][:20]))
     return 0
