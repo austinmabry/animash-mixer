@@ -96,7 +96,7 @@ def analyze():
     result = catalog.best_mixes(seen["animals"], top_n=TOP_N)
     result["backend"] = seen["backend"]
     result["tiles"] = seen["tiles"]
-    result["unrecognised"] = sum(1 for t in seen["tiles"] if not t["name"])
+    result["unrecognised"] = sum(1 for t in seen["tiles"] if not t["confident"])
     result["not_in_catalog"] = [n for n in seen["animals"] if not catalog.canonical(n)]
     if app.debug:
         result["raw"] = seen["raw"]

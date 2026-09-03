@@ -1,0 +1,340 @@
+From 152a75a25dad85f7b080cf962d5b06d9b82b23a5 Mon Sep 17 00:00:00 2001
+From: austin <austin@local>
+Date: Thu, 3 Sep 2026 17:32:48 +0000
+Subject: [PATCH 2/2] Parse every combinations table per page, tolerate
+ column-label variants; hot-reload catalog and pictures
+
+---
+ README.md                       |   9 ++-
+ app/server.py                   |  36 +++++++++-
+ app/vision.py                   |   6 ++
+ scraper/scrape_wiki.py          | 117 ++++++++++++++++++++++++--------
+ tests/fixtures/multi_table.html |  20 ++++++
+ tests/test_scraper.py           |  17 +++++
+ 6 files changed, 170 insertions(+), 35 deletions(-)
+ create mode 100644 tests/fixtures/multi_table.html
+
+diff --git a/README.md b/README.md
+index f37e730..620773f 100644
+--- a/README.md
++++ b/README.md
+@@ -39,8 +39,13 @@ on a star rank), `unmatched parents` (a table names an animal that has no
+ page, usually a spelling drift on the wiki) and `pages w/o table`. All three
+ are stored in the JSON so you can inspect them; nothing is silently fixed.
+ 
+-Until you run the scraper, the app boots on `data/fusions.sample.json`, which
+-is the Dragon page only (195 pairs) and is enough to smoke-test the UI.
++Until you run the scraper, the app serves `data/fusions.sample.json`, which
++is the Dragon page only (195 pairs) and is enough to smoke-test the UI. The
++app notices when `data/fusions.json` or `data/icons/` change and reloads
++them on the next request, so a scrape (or re-scrape) never needs a restart.
++
++If a page's table isn't being picked up, `python scraper/scrape_wiki.py
++--dump Piano` prints every table it sees on that page with its header row.
+ Recognition needs `data/icons/` populated; the health endpoint and the footer
+ say how many pictures are loaded.
+ 
+diff --git a/app/server.py b/app/server.py
+index d1e5317..c4b4d01 100644
+--- a/app/server.py
++++ b/app/server.py
+@@ -4,10 +4,13 @@ from __future__ import annotations
+ import os
+ from pathlib import Path
+ 
++import threading
++
+ from flask import Flask, jsonify, request, send_from_directory
+ 
+-from .fusions import Catalog
++from .fusions import DATA, Catalog
+ from .match import ICON_DIR
++from . import vision
+ from .vision import identify
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+@@ -15,7 +18,31 @@ STATIC = ROOT / "static"
+ 
+ app = Flask(__name__, static_folder=str(STATIC), static_url_path="/static")
+ app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024
+-catalog = Catalog()
++
++_lock = threading.Lock()
++_state = {"catalog": None, "data_sig": None, "icons_sig": None}
++
++
++def _icons_sig():
++    if not ICON_DIR.exists():
++        return None
++    files = list(ICON_DIR.glob("*.png"))
++    return (len(files), max((f.stat().st_mtime for f in files), default=0))
++
++
++def get_catalog() -> Catalog:
++    """Reload data/fusions.json (and drop the picture matcher) whenever the
++    scraper has written new files, so a re-scrape never needs a restart."""
++    sig = DATA.stat().st_mtime if DATA.exists() else None
++    isig = _icons_sig()
++    with _lock:
++        if _state["catalog"] is None or sig != _state["data_sig"]:
++            _state["catalog"] = Catalog()
++            _state["data_sig"] = sig
++        if isig != _state["icons_sig"]:
++            vision.reset_matcher()
++            _state["icons_sig"] = isig
++        return _state["catalog"]
+ 
+ TOP_N = int(os.environ.get("TOP_N", "5"))
+ 
+@@ -27,6 +54,7 @@ def index():
+ 
+ @app.get("/api/health")
+ def health():
++    catalog = get_catalog()
+     return jsonify({
+         "ok": True,
+         "animals": len(catalog.animals),
+@@ -40,7 +68,7 @@ def health():
+ 
+ @app.get("/api/animals")
+ def animals():
+-    return jsonify(catalog.animals)
++    return jsonify(get_catalog().animals)
+ 
+ 
+ @app.post("/api/mixes")
+@@ -49,6 +77,7 @@ def mixes():
+     names = body.get("animals") or []
+     if not isinstance(names, list):
+         return jsonify({"error": "animals must be a list of names"}), 400
++    catalog = get_catalog()
+     return jsonify(catalog.best_mixes(names, top_n=int(body.get("top_n") or TOP_N)))
+ 
+ 
+@@ -57,6 +86,7 @@ def analyze():
+     f = request.files.get("image")
+     if not f:
+         return jsonify({"error": "Upload an image in the 'image' field."}), 400
++    catalog = get_catalog()
+     try:
+         seen = identify(f.read(), catalog.animals)
+     except Exception as e:  # surface the real reason to the UI
+diff --git a/app/vision.py b/app/vision.py
+index 515eb97..94fd217 100644
+--- a/app/vision.py
++++ b/app/vision.py
+@@ -118,6 +118,12 @@ def get_matcher(known: list[str]):
+     return _matcher
+ 
+ 
++def reset_matcher() -> None:
++    """Forget the loaded pictures; the next request reloads data/icons/."""
++    global _matcher
++    _matcher = None
++
++
+ def identify_with_icons(image_bytes: bytes, known: list[str]) -> tuple[list[str], list[dict]]:
+     m = get_matcher(known)
+     results, _ = m.detect(image_bytes)
+diff --git a/scraper/scrape_wiki.py b/scraper/scrape_wiki.py
+index 62676ef..be36e6b 100644
+--- a/scraper/scrape_wiki.py
++++ b/scraper/scrape_wiki.py
+@@ -108,47 +108,97 @@ def _img_src(cell) -> str | None:
+     return None
+ 
+ 
++TIER_STARS = {
++    "common": 3, "unique": 4, "rare": 5, "ultra rare": 6, "legendary": 7, "mythical": 8,
++    "divine": 9, "supreme": 10, "alpha supreme": 11, "gamma supreme": 12, "zeta supreme": 13,
++    "theta supreme": 14, "kappa supreme": 15,
++}
++STAR_WORD_RE = re.compile(r"(\d+)\s*(?:stars?|★|\*)", re.I)
++
++
++def parse_stars(text: str) -> tuple[int | None, str | None]:
++    """'Legendary (7)' / '7 Stars' / '★★★★' / 'Legendary' -> (7, 'Legendary')."""
++    t = text.strip()
++    m = STAR_RE.search(t)
++    if m:
++        return int(m.group(1)), (t[: m.start()].strip(" -:") or None)
++    m = STAR_WORD_RE.search(t)
++    if m:
++        return int(m.group(1)), None
++    if "★" in t or "⭐" in t:
++        return t.count("★") + t.count("⭐"), None
++    key = re.sub(r"\s+", " ", t.lower())
++    if key in TIER_STARS:
++        return TIER_STARS[key], t
++    return None, None
++
++
++def _header_cells(table):
++    """First row that looks like a header: <th> cells, or bold <td> cells."""
++    for tr in table.find_all("tr"):
++        ths = tr.find_all("th")
++        if ths:
++            return [th.get_text(" ", strip=True).lower() for th in ths]
++        tds = tr.find_all("td")
++        if tds and all(td.find(["b", "strong"]) for td in tds):
++            return [td.get_text(" ", strip=True).lower() for td in tds]
++    return []
++
++
++def _col(headers: list[str], *keys: str) -> int | None:
++    for k in keys:
++        for i, h in enumerate(headers):
++            if k in h:
++                return i
++    return None
++
++
+ def parse_fusion_table(html: str, animal: str) -> list[dict]:
+-    """Return rows [{a, b, name, stars, tier, icon}] from an animal page."""
++    """Return rows [{a, b, name, stars, tier, icon}] from an animal page.
++
++    Pages can hold several combination tables (one per animal set), and the
++    column labels vary between editors, so every table on the page is tried
++    and rows are de-duplicated by parent."""
+     soup = BeautifulSoup(html, "html.parser")
+-    rows: list[dict] = []
++    rows: dict[str, dict] = {}
+     for table in soup.find_all("table"):
+-        header_row = next((tr for tr in table.find_all("tr") if tr.find("th")), None)
+-        if not header_row:
+-            continue
+-        headers = [th.get_text(" ", strip=True).lower() for th in header_row.find_all("th")]
+-        if not any("parent" in h for h in headers) or not any("star" in h for h in headers):
+-            continue
+-
+-        def col(key: str) -> int | None:
+-            return next((i for i, h in enumerate(headers) if key in h), None)
+-
+-        pc, nc, ic, sc = col("parent"), col("name"), col("icon"), col("star")
+-        if pc is None or nc is None or sc is None:
++        headers = _header_cells(table)
++        pc = _col(headers, "parent", "animal", "partner", "combine", "with", "mother", "father")
++        sc = _col(headers, "star", "rank", "rarity", "tier")
++        nc = _col(headers, "name", "fusion", "result", "animash", "child", "offspring")
++        ic = _col(headers, "icon", "image", "picture")
++        if pc is None or sc is None:
+             continue
+-
+         for tr in table.find_all("tr"):
+             tds = tr.find_all("td")
+-            if len(tds) <= max(pc, nc, sc):
++            if len(tds) <= max(pc, sc):
+                 continue
+             parent = tds[pc].get_text(" ", strip=True)
+-            name = tds[nc].get_text(" ", strip=True)
+-            star_text = tds[sc].get_text(" ", strip=True)
+-            m = STAR_RE.search(star_text)
+-            if not parent or not m:
++            if not parent or parent.lower() == animal.lower():
++                continue
++            stars, tier = parse_stars(tds[sc].get_text(" ", strip=True))
++            if stars is None:
+                 continue
+-            tier = star_text[: m.start()].strip() or None
+-            rows.append({
+-                "a": animal,
+-                "b": parent,
+-                "name": name or None,
+-                "stars": int(m.group(1)),
+-                "tier": tier,
++            name = tds[nc].get_text(" ", strip=True) if nc is not None and nc < len(tds) else None
++            rows.setdefault(parent, {
++                "a": animal, "b": parent, "name": name or None, "stars": stars, "tier": tier,
+                 "icon": _img_src(tds[ic]) if ic is not None and ic < len(tds) else None,
+             })
+-        if rows:
+-            break  # first matching table is the combinations table
+-    return rows
++    return list(rows.values())
++
++
++def dump_tables(html: str) -> None:
++    """Debug aid: print every table's header row and first data row."""
++    soup = BeautifulSoup(html, "html.parser")
++    tables = soup.find_all("table")
++    print(f"  {len(tables)} table(s) on page")
++    for i, table in enumerate(tables):
++        print(f"  table {i}: headers={_header_cells(table)}")
++        for tr in table.find_all("tr"):
++            tds = tr.find_all("td")
++            if tds:
++                print("    first row:", [td.get_text(' ', strip=True)[:30] for td in tds])
++                break
+ 
+ 
+ # -------------------------------------------------------------------- icons
+@@ -280,8 +330,15 @@ def main() -> int:
+     ap.add_argument("--out", default=str(OUT))
+     ap.add_argument("--no-icons", action="store_true", help="skip downloading reference pictures")
+     ap.add_argument("--icons-only", action="store_true", help="only (re)download reference pictures")
++    ap.add_argument("--dump", nargs="+", metavar="TITLE", help="print the tables found on these pages and exit")
+     args = ap.parse_args()
+ 
++    if args.dump:
++        for title in args.dump:
++            print(title)
++            dump_tables(page_html(title, args.refresh))
++        return 0
++
+     print("Listing Category:Animals ...")
+     animals = list_animals()
+     print(f"  {len(animals)} animal pages")
+diff --git a/tests/fixtures/multi_table.html b/tests/fixtures/multi_table.html
+new file mode 100644
+index 0000000..ec53083
+--- /dev/null
++++ b/tests/fixtures/multi_table.html
+@@ -0,0 +1,20 @@
++<div class="mw-parser-output">
++<h2>Fusions</h2>
++<p><i>Shiba Inu Combinations (Set 3)</i></p>
++<table class="wikitable"><tr><th>Parent</th><th>Name</th><th>Icon</th><th>Star Rank</th></tr>
++<tr><td>Alien</td><td>Shibalien</td><td></td><td>Rare (5)</td></tr>
++<tr><td>Cheetah</td><td>Shibeetah</td><td></td><td>Legendary (7)</td></tr>
++</table>
++<p><i>Shiba Inu Combinations (Set 9)</i></p>
++<table class="wikitable"><tr><th>Parent</th><th>Name</th><th>Icon</th><th>Star Rank</th></tr>
++<tr><td>Cheetah</td><td>Shibeetah</td><td></td><td>Legendary (7)</td></tr>
++<tr><td>Pumpkin</td><td>Shibakin</td><td></td><td>Mythical (8)</td></tr>
++</table>
++<h2>Other</h2>
++<table class="wikitable"><tr><td><b>Animal</b></td><td><b>Fusion</b></td><td><b>Rarity</b></td></tr>
++<tr><td>Toaster</td><td>Shibatoast</td><td>7 Stars</td></tr>
++<tr><td>Rock</td><td>Shibrock</td><td>Unique</td></tr>
++<tr><td>Shiba Inu</td><td>-</td><td>Common (3)</td></tr>
++<tr><td>Nothing</td><td>x</td><td>???</td></tr>
++</table>
++</div>
+diff --git a/tests/test_scraper.py b/tests/test_scraper.py
+index 83dd228..c47080f 100644
+--- a/tests/test_scraper.py
++++ b/tests/test_scraper.py
+@@ -35,3 +35,20 @@ def test_merge_symmetric_and_conflicts():
+     assert len(m["conflicts"]) == 1 and m["conflicts"][0]["pair"] == ["Black Hole", "Dragon"]
+     assert m["unmatched_parents"] == ["Sea Bunny"]
+     assert m["fusions"][0]["stars"] == 15  # sorted best-first
++
++
++def test_parse_all_tables_and_label_variants():
++    from scraper.scrape_wiki import parse_stars
++    html = (Path(__file__).parent / "fixtures" / "multi_table.html").read_text()
++    rows = parse_fusion_table(html, "Shiba Inu")
++    got = {r["b"]: (r["name"], r["stars"], r["tier"]) for r in rows}
++    assert got == {
++        "Alien": ("Shibalien", 5, "Rare"),
++        "Cheetah": ("Shibeetah", 7, "Legendary"),      # listed twice, kept once
++        "Pumpkin": ("Shibakin", 8, "Mythical"),        # second table
++        "Toaster": ("Shibatoast", 7, None),            # bold-td headers, "7 Stars"
++        "Rock": ("Shibrock", 4, "Unique"),             # tier name only
++    }
++    assert parse_stars("★★★★★") == (5, None)
++    assert parse_stars("Kappa Supreme (15)") == (15, "Kappa Supreme")
++    assert parse_stars("garbage") == (None, None)
+-- 
+2.43.0
+

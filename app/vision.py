@@ -131,7 +131,7 @@ def identify_with_icons(image_bytes: bytes, known: list[str]) -> tuple[list[str]
         "box": r.box, "name": r.name, "score": round(r.score, 3), "confident": r.confident,
         "alternatives": [{"name": n, "score": round(sc, 3)} for n, sc in r.top],
     } for r in results]
-    names = [r.name for r in results if r.name]
+    names = [r.name for r in results if r.name and r.confident]
     return names, tiles   # already canonical: icon files are named after catalog titles
 
 

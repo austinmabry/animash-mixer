@@ -208,14 +208,14 @@ def dump_tables(html: str) -> None:
 
 
 # ------------------------------------------------------------ fusion pages
-def fusion_pages() -> list[dict]:
-    """Every page in Category:Fusions with its categories and lead image."""
-    pages: dict[int, dict] = {}
+def _category_pages(category: str, pages: dict[int, dict]) -> int:
+    """Add every page in `category` (with its categories + lead image) to `pages`."""
     cont: dict = {}
+    seen = 0
     while True:
         data = api({
             "action": "query", "generator": "categorymembers",
-            "gcmtitle": "Category:Fusions", "gcmnamespace": 0, "gcmlimit": 500,
+            "gcmtitle": category, "gcmnamespace": 0, "gcmlimit": 500,
             "prop": "categories|pageimages", "cllimit": "max", "piprop": "original",
             **cont,
         })
@@ -224,10 +224,34 @@ def fusion_pages() -> list[dict]:
             cur["categories"] |= {c["title"].split(":", 1)[1] for c in pg.get("categories", [])}
             if pg.get("original"):
                 cur["image"] = pg["original"]["source"]
+            seen += 1
         cont = data.get("continue")
         if not cont:
             break
         time.sleep(0.3)
+    return seen
+
+
+def tier_categories() -> list[str]:
+    """Sub-categories of Category:Star Ranks, e.g. 'Category:Common' ... 'Category:Kappa Supreme'.
+    Falls back to the known tier names if the parent category can't be listed."""
+    try:
+        data = api({"action": "query", "list": "categorymembers", "cmtitle": "Category:Star Ranks",
+                    "cmnamespace": 14, "cmlimit": 500})
+        cats = [m["title"] for m in data["query"]["categorymembers"]]
+    except Exception as e:
+        print(f"  could not list Category:Star Ranks ({e}); using built-in tier names", file=sys.stderr)
+        cats = []
+    return cats or ["Category:" + t.title() for t in TIER_STARS]
+
+
+def fusion_pages() -> list[dict]:
+    """Every fusion page, found through the star-tier categories (every fusion
+    has exactly one) plus Category:Fusions, with categories and lead image."""
+    pages: dict[int, dict] = {}
+    for cat in tier_categories() + ["Category:Fusions"]:
+        n = _category_pages(cat, pages)
+        print(f"  {cat}: {n} pages")
     return list(pages.values())
 
 

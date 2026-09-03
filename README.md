@@ -15,9 +15,13 @@ wiki scrape ──► data/fusions.json + data/icons/ ──► rank every pair 
 The in-game shelf shows pictures only (names appear on hover), so
 recognition is image matching, done locally with OpenCV: every white
 circular tile is found, cropped, and compared against the reference picture
-of every animal from the wiki. Colour and edge structure are compared
-separately, so an orange pumpkin doesn't get confused with a green durian.
-Nothing leaves your network and no API key is needed.
+of every animal from the wiki. The wiki pictures come with a white
+background baked in; it is keyed out and the sprite is re-drawn on the
+tile's own background gradient before comparing. Lightness, colour and
+edges are compared separately, with colour weighted by how colourful the
+animal is, so an orange pumpkin isn't confused with a green durian and a
+grey toaster isn't judged on colour noise. Verified 12/12 on a real shelf
+screenshot. Nothing leaves your network and no API key is needed.
 
 ## 1. Build the catalog (once, then whenever the game adds animals)
 

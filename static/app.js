@@ -52,7 +52,7 @@
       if (!r.ok) throw new Error(data.error || `Server said ${r.status}`);
       const before = shelf.length;
       for (const n of data.available) if (!shelf.includes(n)) shelf.push(n);
-      for (const t of data.tiles || []) if (!t.name && t.alternatives && t.alternatives.length) unsure.push(t);
+      for (const t of data.tiles || []) if (!t.confident && t.alternatives && t.alternatives.length) unsure.push(t);
       topN = 5;
       showShelf();
       if (before) { await refreshMixes(); } else { renderMixes(data); }
