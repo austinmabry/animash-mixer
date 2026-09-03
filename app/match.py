@@ -80,9 +80,28 @@ class IconMatcher:
 
     # ------------------------------------------------------------ set-up
     @staticmethod
+    def _strip_cyan_band(img: np.ndarray) -> np.ndarray:
+        """Nearly every wiki picture carries a light-blue wedge along its bottom edge
+        (a capture artefact); the game tiles don't. Blank it out if it is a thin band."""
+        if img.shape[2] < 4:
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
+        hsv = cv2.cvtColor(img[:, :, :3], cv2.COLOR_BGR2HSV)
+        cyan = (cv2.inRange(hsv, (90, 80, 150), (110, 255, 255)) > 0) & (img[:, :, 3] > 128)
+        rows = cyan.mean(axis=1)
+        H = img.shape[0]
+        top = H
+        while top > 0 and rows[top - 1] > 0.01:
+            top -= 1
+        if 0 < H - top <= int(H * 0.16):
+            img = img.copy()
+            img[top:, :, 3] = 0
+        return img
+
+    @staticmethod
     def _on_white(img: np.ndarray) -> np.ndarray:
         if img.ndim == 2:
             img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGRA)
+        img = IconMatcher._strip_cyan_band(img)
         if img.shape[2] == 4:
             a = img[:, :, 3]
             ys, xs = np.where(a > 16)
