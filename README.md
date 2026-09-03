@@ -66,8 +66,7 @@ docker compose up -d --build
 ```
 
 Open `http://<host>:35000` on the kids' phones. Add to home screen and it
-behaves like an app. Without Docker: `python -m app.server` (dev server, honours PORT in .env, default 35000
-`:35000`).
+Without Docker: `python -m app.server` (dev server on `:35000`, or whatever `PORT` is in `.env`).
 
 ### Using it
 
