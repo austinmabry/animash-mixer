@@ -6,13 +6,19 @@ Usage:
     python scraper/scrape_wiki.py --only Dragon   # one animal (debugging)
     python scraper/scrape_wiki.py --refresh       # ignore the page cache
 
-The wiki runs MediaWiki, so this uses its API instead of scraping pages:
-  1. list Category:Animals (namespace 0 only -> real animal pages, not
-     the per-animal sub-categories)
-  2. for each animal, action=parse -> rendered HTML of the page
-  3. find the fusion table (headers Parent / Name / Icon / Star Rank)
-  4. download each animal's lead picture to data/icons/ — the app matches
-     shelf screenshots against these, so they matter as much as the table
+The wiki runs MediaWiki, so this uses its API instead of scraping pages.
+Two sources are combined, because neither is complete on its own:
+
+  A. Fusion pages. Every fusion has a page filed under Category:Fusions and
+     categorised by both parents and its star tier (e.g. Smushko is in
+     Gecko, Pug and Rare). The API returns categories for hundreds of pages
+     per call, so this covers the whole wiki quickly. Primary source.
+  B. Animal pages. Each has a "<Animal> Combinations" table, but editors
+     only filled these in for popular animals (Dragon, Unicorn...). Still
+     parsed, merged in, and disagreements kept in "conflicts".
+
+Plus each animal's lead picture is downloaded to data/icons/ — the app
+matches shelf screenshots against these.
 
 Fusions are symmetric (Dragon+Alien == Alien+Dragon). Both directions are
 merged into one record; disagreements are kept in "conflicts" rather than
@@ -201,6 +207,53 @@ def dump_tables(html: str) -> None:
                 break
 
 
+# ------------------------------------------------------------ fusion pages
+def fusion_pages() -> list[dict]:
+    """Every page in Category:Fusions with its categories and lead image."""
+    pages: dict[int, dict] = {}
+    cont: dict = {}
+    while True:
+        data = api({
+            "action": "query", "generator": "categorymembers",
+            "gcmtitle": "Category:Fusions", "gcmnamespace": 0, "gcmlimit": 500,
+            "prop": "categories|pageimages", "cllimit": "max", "piprop": "original",
+            **cont,
+        })
+        for pg in data.get("query", {}).get("pages", []):
+            cur = pages.setdefault(pg["pageid"], {"title": pg["title"], "categories": set(), "image": None})
+            cur["categories"] |= {c["title"].split(":", 1)[1] for c in pg.get("categories", [])}
+            if pg.get("original"):
+                cur["image"] = pg["original"]["source"]
+        cont = data.get("continue")
+        if not cont:
+            break
+        time.sleep(0.3)
+    return list(pages.values())
+
+
+def fusion_row_from_categories(page: dict, canon: dict[str, str]) -> dict | None:
+    """Turn a fusion page's categories into a {a, b, name, stars, tier, icon} row.
+    Returns None (caller logs it) unless exactly two parent animals and a tier are found."""
+    parents, tier, stars = [], None, None
+    for c in page["categories"]:
+        key = c.lower()
+        if key in TIER_STARS:
+            tier, stars = c, TIER_STARS[key]
+            continue
+        m = STAR_RE.search(c)
+        if m and stars is None:
+            tier, stars = c[: m.start()].strip() or None, int(m.group(1))
+            continue
+        a = canon.get(key) or canon.get(key.replace("-", " ")) or canon.get(key.replace(" ", ""))
+        if a and a not in parents:
+            parents.append(a)
+    if len(parents) != 2 or stars is None:
+        return None
+    parents.sort(key=str.lower)
+    return {"a": parents[0], "b": parents[1], "name": page["title"], "stars": stars,
+            "tier": tier, "icon": page["image"], "source": "fusion page"}
+
+
 # -------------------------------------------------------------------- icons
 ICON_DIR = ROOT / "data" / "icons"
 
@@ -294,15 +347,16 @@ def merge(all_rows: list[dict], animals: list[str]) -> dict:
             unmatched.add(r["b"])
             b = r["b"]
         key = tuple(sorted((r["a"], b), key=str.lower))
+        source = r.get("source") or r["a"]
         cur = fusions.get(key)
         if cur is None:
             fusions[key] = {
                 "a": key[0], "b": key[1], "name": r["name"], "stars": r["stars"],
-                "tier": r["tier"], "icon": r["icon"], "seen_on": [r["a"]],
+                "tier": r["tier"], "icon": r["icon"], "seen_on": [source],
             }
             continue
-        if r["a"] not in cur["seen_on"]:
-            cur["seen_on"].append(r["a"])
+        if source not in cur["seen_on"]:
+            cur["seen_on"].append(source)
         if not cur["icon"] and r["icon"]:
             cur["icon"] = r["icon"]
         if not cur["name"] and r["name"]:
@@ -312,7 +366,7 @@ def merge(all_rows: list[dict], animals: list[str]) -> dict:
             conflicts.append({
                 "pair": list(key),
                 "kept": {"name": cur["name"], "stars": cur["stars"], "from": cur["seen_on"][0]},
-                "other": {"name": r["name"], "stars": r["stars"], "from": r["a"]},
+                "other": {"name": r["name"], "stars": r["stars"], "from": source},
             })
 
     return {
@@ -364,7 +418,21 @@ def main() -> int:
         print(f"  [{i}/{len(targets)}] {title}: {len(rows)} rows")
         all_rows += rows
 
-    merged = merge(all_rows, animals)
+    fusion_page_rows, odd_fusion_pages = [], []
+    if not args.only:
+        print("Reading fusion pages (Category:Fusions) ...")
+        canon = _canon_map(animals)
+        pages = fusion_pages()
+        for pg in pages:
+            row = fusion_row_from_categories(pg, canon)
+            if row:
+                fusion_page_rows.append(row)
+            else:
+                odd_fusion_pages.append(pg["title"])
+        print(f"  {len(pages)} fusion pages -> {len(fusion_page_rows)} usable rows "
+              f"({len(odd_fusion_pages)} without two parents + a tier)")
+
+    merged = merge(fusion_page_rows + all_rows, animals)
     out = {
         "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": WIKI,
@@ -376,13 +444,15 @@ def main() -> int:
         "conflicts": merged["conflicts"],
         "unmatched_parents": merged["unmatched_parents"],
         "pages_without_table": missing,
+        "fusion_pages_unusable": odd_fusion_pages,
     }
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding="utf-8")
 
     print(f"\nWrote {args.out}")
     print(f"  fusions: {out['fusion_count']}   conflicts: {len(out['conflicts'])}   "
-          f"unmatched parents: {len(out['unmatched_parents'])}   pages w/o table: {len(missing)}")
+          f"unmatched parents: {len(out['unmatched_parents'])}   animal pages w/o table: {len(missing)}   "
+          f"fusion pages unusable: {len(odd_fusion_pages)}")
     if out["unmatched_parents"]:
         print("  unmatched parent names (check spelling on wiki):", ", ".join(out["unmatched_parents"][:20]))
     return 0

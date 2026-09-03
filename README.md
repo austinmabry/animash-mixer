@@ -26,18 +26,22 @@ pip install -r requirements.txt
 python scraper/scrape_wiki.py
 ```
 
-This walks `Category:Animals` through the wiki's MediaWiki API (~360 pages,
-a few minutes), downloads each animal's lead picture to `data/icons/`, parses
-each page's *Combinations* table, merges the two directions of every pair,
-and writes `data/fusions.json`. `--icons-only` refreshes just the pictures;
+This uses the wiki's MediaWiki API (a few minutes). It lists
+`Category:Animals`, downloads each animal's lead picture to `data/icons/`,
+then builds the pair list from two sources and merges them: every page in
+`Category:Fusions` (categorised by both parents and star tier — the
+complete source), and each animal page's *Combinations* table (only filled
+in for popular animals, but merged in and cross-checked). The result is
+`data/fusions.json`. `--icons-only` refreshes just the pictures;
 `--no-icons` skips them. Pages are cached in
 `data/cache/` so a re-run after a network blip only fetches what's missing
 (`--refresh` forces a full re-fetch, `--only Dragon Alien` scrapes a subset).
 
-The summary line at the end reports `conflicts` (the two animal pages disagree
-on a star rank), `unmatched parents` (a table names an animal that has no
-page, usually a spelling drift on the wiki) and `pages w/o table`. All three
-are stored in the JSON so you can inspect them; nothing is silently fixed.
+The summary line at the end reports `conflicts` (sources disagree on a
+star rank or name), `unmatched parents` (a table names an animal that has
+no page, usually a wiki typo), `animal pages w/o table`, and `fusion pages
+unusable` (a fusion page missing a parent or tier category). All are stored
+in the JSON so you can inspect them; nothing is silently fixed.
 
 Until you run the scraper, the app serves `data/fusions.sample.json`, which
 is the Dragon page only (195 pairs) and is enough to smoke-test the UI. The
