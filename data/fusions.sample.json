@@ -1,0 +1,2355 @@
+{
+ "scraped_at": "2026-09-03T00:00:00+00:00",
+ "source": "https://the-unofficial-animash.fandom.com",
+ "note": "SAMPLE ONLY - Dragon page rows A..Pro Boxer, hand-captured. Run scraper/scrape_wiki.py for the full catalog.",
+ "animal_count": 196,
+ "fusion_count": 195,
+ "animals": [
+  "Alien",
+  "Alpaca",
+  "Ancient-Emperor",
+  "Angel",
+  "Anglerfish",
+  "Ankylosaurus",
+  "Ant",
+  "Ant Eater",
+  "Armadillo",
+  "Asparagus",
+  "Astronaut",
+  "Aurora",
+  "Avocado",
+  "Axolotl",
+  "Baboon",
+  "Bacteria",
+  "Bali Starling",
+  "Bamboo",
+  "Banana",
+  "Bat",
+  "Beaver",
+  "Beetle",
+  "Bicycle",
+  "Binturong",
+  "Bismuth",
+  "Black Hole",
+  "Blender",
+  "Blobfish",
+  "Boba Tea",
+  "Boot",
+  "Borzoi",
+  "Broccoli",
+  "Brontosaurus",
+  "Bunny",
+  "Burrito",
+  "Butterfly",
+  "Cactus",
+  "Camel",
+  "Candycane",
+  "Cappuccino",
+  "Capybara",
+  "Car",
+  "Cardboard Box",
+  "Carrot",
+  "Carton Of Milk",
+  "Cassowary",
+  "Caterpillar",
+  "Caveman",
+  "Chameleon",
+  "Cheeseburger",
+  "Cheetah",
+  "Chicken",
+  "Chihuahua",
+  "Chimpanzee",
+  "Chinchilla",
+  "Christmas Gift",
+  "Cinnamon Bun",
+  "Clouds",
+  "Cobra",
+  "Cockroach",
+  "Coconut",
+  "Cookie",
+  "Coral",
+  "Corgi",
+  "Corn",
+  "Cotton Candy",
+  "Couch",
+  "Cow",
+  "Cowboy",
+  "Crab",
+  "Crocodile",
+  "Crow",
+  "Cupcake",
+  "Curse",
+  "Deer",
+  "Demon",
+  "Dolphin",
+  "Doughnut",
+  "Dragon",
+  "Dragonfly",
+  "Duck",
+  "Durian",
+  "Dwarf",
+  "Eagle",
+  "Earthworm",
+  "Eel",
+  "Electricity",
+  "Elephant",
+  "Emu",
+  "Excavator",
+  "Fairy",
+  "Ferret",
+  "Fighter Jet",
+  "Fire",
+  "Flamingo",
+  "Fork",
+  "Fox",
+  "French Fries",
+  "Fried Chicken",
+  "Frog",
+  "Garbage Truck",
+  "Gecko",
+  "Genie",
+  "Ghost",
+  "Giant Eyeball",
+  "Gingerbread Man",
+  "Giraffe",
+  "Glitch",
+  "Glitter",
+  "Goat",
+  "Gorilla",
+  "Grasshopper",
+  "Great Dane",
+  "Grim Reaper",
+  "Grizzly Bear",
+  "Guitar",
+  "Gummy Bear",
+  "Hedgehog",
+  "Helicopter",
+  "Hippo",
+  "Horse",
+  "Hot Sauce",
+  "Hotdog",
+  "Housefly",
+  "Human Man",
+  "Human Woman",
+  "Hummingbird",
+  "Husky",
+  "Hyena",
+  "Ice",
+  "Iguana",
+  "Jade",
+  "Jellyfish",
+  "Jerboa",
+  "Kangaroo",
+  "Kitten",
+  "Kiwi-Bird",
+  "Knight",
+  "Koala",
+  "Komodo Dragon",
+  "Ladybug",
+  "Lava",
+  "Lava Lamp",
+  "Lemur",
+  "Lion",
+  "Livestreamer",
+  "Lobster",
+  "Luchador",
+  "Lynx",
+  "Macaw",
+  "Mad Scientist",
+  "Mammoth",
+  "Manatee",
+  "Maned Wolf",
+  "Medusa",
+  "Megalodon",
+  "Mermaid",
+  "Millipede",
+  "Mole",
+  "Monkey",
+  "Moose",
+  "Mosquito",
+  "Moth",
+  "Mouse",
+  "Mummy",
+  "Mushroom",
+  "Narwhal",
+  "Ninja",
+  "Octopus",
+  "Ogre",
+  "Orangutan",
+  "Orbital Doom Laser",
+  "Orca",
+  "Ostrich",
+  "Otter",
+  "Owl",
+  "Panda",
+  "Panther",
+  "Peacock",
+  "Penguin",
+  "Piano",
+  "Pickle",
+  "Pig",
+  "Pineapple",
+  "Pirate",
+  "Pistol Shrimp",
+  "Pizza",
+  "Plasma",
+  "Plastic Slide",
+  "Platypus",
+  "Polar Bear",
+  "Politician",
+  "Poodle",
+  "Praying Mantis",
+  "Princess",
+  "Pro Boxer"
+ ],
+ "fusions": [
+  {
+   "a": "Alien",
+   "b": "Dragon",
+   "name": "Zenodrake",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Alpaca",
+   "b": "Dragon",
+   "name": "Woolwhirl",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Ancient-Emperor",
+   "b": "Dragon",
+   "name": "Regalwyrm",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Angel",
+   "b": "Dragon",
+   "name": "Etherwyrm",
+   "stars": 11,
+   "tier": "Alpha Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Anglerfish",
+   "b": "Dragon",
+   "name": "Snagdrake",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Ankylosaurus",
+   "b": "Dragon",
+   "name": "Ignispine",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Ant",
+   "b": "Dragon",
+   "name": "Pyrant",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Ant Eater",
+   "b": "Dragon",
+   "name": "Pyrosnout",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Armadillo",
+   "b": "Dragon",
+   "name": "Scaleplate",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Asparagus",
+   "b": "Dragon",
+   "name": "Dracobud",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Astronaut",
+   "b": "Dragon",
+   "name": "Starflame",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Aurora",
+   "b": "Dragon",
+   "name": "Dawnbreath",
+   "stars": 13,
+   "tier": "Zeta Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Avocado",
+   "b": "Dragon",
+   "name": "Dravocado",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Axolotl",
+   "b": "Dragon",
+   "name": "Pyrogill",
+   "stars": 11,
+   "tier": "Alpha Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Baboon",
+   "b": "Dragon",
+   "name": "Scorchscout",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Bacteria",
+   "b": "Dragon",
+   "name": "Pyroplasm",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Bali Starling",
+   "b": "Dragon",
+   "name": "Starflare",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Bamboo",
+   "b": "Dragon",
+   "name": "Embercane",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Banana",
+   "b": "Dragon",
+   "name": "Scorchpeel",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Bat",
+   "b": "Dragon",
+   "name": "Drakebat",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Beaver",
+   "b": "Dragon",
+   "name": "Lumberwing",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Beetle",
+   "b": "Dragon",
+   "name": "Torchbeetle",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Bicycle",
+   "b": "Dragon",
+   "name": "Chainwyrm",
+   "stars": 14,
+   "tier": "Theta Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Binturong",
+   "b": "Dragon",
+   "name": "Nightspark",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Bismuth",
+   "b": "Dragon",
+   "name": "Pyroprism",
+   "stars": 11,
+   "tier": "Alpha Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Black Hole",
+   "b": "Dragon",
+   "name": "Wyrmhole",
+   "stars": 15,
+   "tier": "Kappa Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Blender",
+   "b": "Dragon",
+   "name": "Bladebreath",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Blobfish",
+   "b": "Dragon",
+   "name": "Gooblaze",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Boba Tea",
+   "b": "Dragon",
+   "name": "Tarotalon",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Boot",
+   "b": "Dragon",
+   "name": "Bootwyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Borzoi",
+   "b": "Dragon",
+   "name": "Pyrohound",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Broccoli",
+   "b": "Dragon",
+   "name": "Dragonflower",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Brontosaurus",
+   "b": "Dragon",
+   "name": "Emberneck",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Bunny",
+   "b": "Dragon",
+   "name": "Cuddlefire",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Burrito",
+   "b": "Dragon",
+   "name": "Dragrito",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Butterfly",
+   "b": "Dragon",
+   "name": "Glimmerdrake",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cactus",
+   "b": "Dragon",
+   "name": "Dracactus",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Camel",
+   "b": "Dragon",
+   "name": "Sundragon",
+   "stars": 3,
+   "tier": "Common",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Candycane",
+   "b": "Dragon",
+   "name": "Swirlwyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cappuccino",
+   "b": "Dragon",
+   "name": "Foamflame",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Capybara",
+   "b": "Dragon",
+   "name": "Scalybara",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Car",
+   "b": "Dragon",
+   "name": "Turbowing",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cardboard Box",
+   "b": "Dragon",
+   "name": "Flapwyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Carrot",
+   "b": "Dragon",
+   "name": "Veggidrake",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Carton Of Milk",
+   "b": "Dragon",
+   "name": "Milkdra",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cassowary",
+   "b": "Dragon",
+   "name": "Quillwyrm",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Caterpillar",
+   "b": "Dragon",
+   "name": "Ashworm",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Caveman",
+   "b": "Dragon",
+   "name": "Cavewyrm",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Chameleon",
+   "b": "Dragon",
+   "name": "Camogon",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cheeseburger",
+   "b": "Dragon",
+   "name": "Beefdrake",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cheetah",
+   "b": "Dragon",
+   "name": "Rushwyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Chicken",
+   "b": "Dragon",
+   "name": "Peckwyrm",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Chihuahua",
+   "b": "Dragon",
+   "name": "Chidrake",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Chimpanzee",
+   "b": "Dragon",
+   "name": "Vinefire",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Chinchilla",
+   "b": "Dragon",
+   "name": "Snugspark",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Christmas Gift",
+   "b": "Dragon",
+   "name": "Jingleblaze",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cinnamon Bun",
+   "b": "Dragon",
+   "name": "Firebun",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Clouds",
+   "b": "Dragon",
+   "name": "Stormtail",
+   "stars": 11,
+   "tier": "Alpha Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cobra",
+   "b": "Dragon",
+   "name": "Pyrocoil",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cockroach",
+   "b": "Dragon",
+   "name": "Infernaroach",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Coconut",
+   "b": "Dragon",
+   "name": "Cocoflare",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cookie",
+   "b": "Dragon",
+   "name": "Doughblaze",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Coral",
+   "b": "Dragon",
+   "name": "Blazecrest",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Corgi",
+   "b": "Dragon",
+   "name": "Wagwing",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Corn",
+   "b": "Dragon",
+   "name": "Grainwyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cotton Candy",
+   "b": "Dragon",
+   "name": "Candywyrm",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Couch",
+   "b": "Dragon",
+   "name": "Pyropillows",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cow",
+   "b": "Dragon",
+   "name": "Bovifire",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cowboy",
+   "b": "Dragon",
+   "name": "Buckscorch",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Crab",
+   "b": "Dragon",
+   "name": "Dracrab",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Crocodile",
+   "b": "Dragon",
+   "name": "Crocospark",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Crow",
+   "b": "Dragon",
+   "name": "Talonash",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Cupcake",
+   "b": "Dragon",
+   "name": "Firefrost",
+   "stars": 3,
+   "tier": "Common",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Curse",
+   "b": "Dragon",
+   "name": "Omenclaw",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Deer",
+   "b": "Dragon",
+   "name": "Skyfawn",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Demon",
+   "b": "Dragon",
+   "name": "Doomdrake",
+   "stars": 11,
+   "tier": "Alpha Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dolphin",
+   "b": "Dragon",
+   "name": "Saltspark",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Doughnut",
+   "b": "Dragon",
+   "name": "Doughscale",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Dragonfly",
+   "name": "Emberswarm",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Duck",
+   "name": "Firefeather",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Durian",
+   "name": "Scalyhusk",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Dwarf",
+   "name": "Coaldrake",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Eagle",
+   "name": "Skydrake",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Earthworm",
+   "name": "Digdrake",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Eel",
+   "name": "Blazeel",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Electricity",
+   "name": "Surgebeast",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Elephant",
+   "name": "Flarophant",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Emu",
+   "name": "Emberrun",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Excavator",
+   "name": "Drakedozer",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Fairy",
+   "name": "Twinklewyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Ferret",
+   "name": "Hissnuzzle",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Fighter Jet",
+   "name": "Pyrostrike",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Fire",
+   "name": "Emberscale",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Flamingo",
+   "name": "Flamagon",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Fork",
+   "name": "Pyroprong",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Fox",
+   "name": "Ashsnout",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "French Fries",
+   "name": "Crispwing",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Fried Chicken",
+   "name": "Sizzlefang",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Frog",
+   "name": "Frogon",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Garbage Truck",
+   "name": "Blazebox",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Gecko",
+   "name": "Geckogon",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Genie",
+   "name": "Ashwish",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Ghost",
+   "name": "Wraithwing",
+   "stars": 11,
+   "tier": "Alpha Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Giant Eyeball",
+   "name": "Flamegaze",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Gingerbread Man",
+   "name": "Cinnawing",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Giraffe",
+   "name": "Skyspot",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Glitch",
+   "name": "Datadrake",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Glitter",
+   "name": "Glamhoard",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Goat",
+   "name": "Dragoat",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Gorilla",
+   "name": "Dragorilla",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Grasshopper",
+   "name": "Cinderskip",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Great Dane",
+   "name": "Dragodane",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Grim Reaper",
+   "name": "Grimwyrm",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Grizzly Bear",
+   "name": "Bearagon",
+   "stars": 5,
+   "tier": "Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Guitar",
+   "name": "Emberiff",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Gummy Bear",
+   "name": "Stickifang",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Hedgehog",
+   "name": "Dragehog",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Helicopter",
+   "name": "Helidrake",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Hippo",
+   "name": "Riverfire",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Horse",
+   "name": "Embertrot",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Hot Sauce",
+   "name": "Sizzlebreath",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Hotdog",
+   "name": "Blazebun",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Housefly",
+   "name": "Torchfly",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Human Man",
+   "name": "Smolderbro",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Human Woman",
+   "name": "Embermaiden",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Hummingbird",
+   "name": "Hoverspark",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Husky",
+   "name": "Wyrmhound",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Hyena",
+   "name": "Drahyena",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Ice",
+   "name": "Shardwing",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Iguana",
+   "name": "Embercrest",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Jade",
+   "name": "Quartzwing",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Jellyfish",
+   "name": "Jellydrake",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Jerboa",
+   "name": "Burrowyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Kangaroo",
+   "name": "Kangfire",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Kitten",
+   "name": "Mewscales",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Kiwi-Bird",
+   "name": "Burrowwyrm",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Knight",
+   "name": "Wyvernguard",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Koala",
+   "name": "Clingwing",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Komodo Dragon",
+   "name": "Infernoclaw",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Ladybug",
+   "name": "Flamedot",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Lava",
+   "name": "Emberscales",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Lava Lamp",
+   "name": "Meltspine",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Lemur",
+   "name": "Torchtail",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Lion",
+   "name": "Leogon",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Livestreamer",
+   "name": "Emberchat",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Lobster",
+   "name": "Reefroar",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Luchador",
+   "name": "Pyroflex",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Lynx",
+   "name": "Dragonyx",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Macaw",
+   "name": "Pyrokaw",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mad Scientist",
+   "name": "Quantwyrm",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mammoth",
+   "name": "Tuskfire",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Manatee",
+   "name": "Floatfire",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Maned Wolf",
+   "name": "Redwyrm",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Medusa",
+   "name": "Glarewyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Megalodon",
+   "name": "Dorsalwyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mermaid",
+   "name": "Mermagon",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Millipede",
+   "name": "Blazelegs",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mole",
+   "name": "Ashenclaw",
+   "stars": 3,
+   "tier": "Common",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Monkey",
+   "name": "Vineblaze",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Moose",
+   "name": "Mossdrake",
+   "stars": 3,
+   "tier": "Common",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mosquito",
+   "name": "Buzzdrake",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Moth",
+   "name": "Cindermoth",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mouse",
+   "name": "Squeakspark",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mummy",
+   "name": "Cryptwing",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Mushroom",
+   "name": "Fungidrake",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Narwhal",
+   "name": "Narfire",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Ninja",
+   "name": "Shadowfire",
+   "stars": 13,
+   "tier": "Zeta Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Octopus",
+   "name": "Inkwing",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Ogre",
+   "name": "Brutefire",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Orangutan",
+   "name": "Pyroclimb",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Orbital Doom Laser",
+   "name": "Thermawyrm",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Orca",
+   "name": "Pyrorca",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Ostrich",
+   "name": "Featherfang",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Otter",
+   "name": "Rivertalon",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Owl",
+   "name": "Drakowl",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Panda",
+   "name": "Bamboogon",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Panther",
+   "name": "Shroudfire",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Peacock",
+   "name": "Dragonplume",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Penguin",
+   "name": "Draguin",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Piano",
+   "name": "Ebonywyrm",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Pickle",
+   "name": "Firebrine",
+   "stars": 4,
+   "tier": "Unique",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Pig",
+   "name": "Hogbreath",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Pineapple",
+   "name": "Pineadon",
+   "stars": 6,
+   "tier": "Ultra Rare",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Pirate",
+   "name": "Sailscale",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Pistol Shrimp",
+   "name": "Bubblaze",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Pizza",
+   "name": "Sizzlewing",
+   "stars": 7,
+   "tier": "Legendary",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Plasma",
+   "name": "Plasmagon",
+   "stars": 12,
+   "tier": "Gamma Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Plastic Slide",
+   "name": "Slitherwing",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Platypus",
+   "name": "Platygon",
+   "stars": 3,
+   "tier": "Common",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Polar Bear",
+   "name": "Chillfire",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Politician",
+   "name": "Politigon",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Poodle",
+   "name": "Emberdoodle",
+   "stars": 8,
+   "tier": "Mythical",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Praying Mantis",
+   "name": "Mantimyth",
+   "stars": 10,
+   "tier": "Supreme",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Princess",
+   "name": "Dazzletalon",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  },
+  {
+   "a": "Dragon",
+   "b": "Pro Boxer",
+   "name": "Pyrojab",
+   "stars": 9,
+   "tier": "Divine",
+   "icon": null,
+   "seen_on": [
+    "Dragon"
+   ]
+  }
+ ],
+ "conflicts": [],
+ "unmatched_parents": [],
+ "pages_without_table": []
+}
