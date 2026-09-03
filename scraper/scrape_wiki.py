@@ -108,47 +108,97 @@ def _img_src(cell) -> str | None:
     return None
 
 
+TIER_STARS = {
+    "common": 3, "unique": 4, "rare": 5, "ultra rare": 6, "legendary": 7, "mythical": 8,
+    "divine": 9, "supreme": 10, "alpha supreme": 11, "gamma supreme": 12, "zeta supreme": 13,
+    "theta supreme": 14, "kappa supreme": 15,
+}
+STAR_WORD_RE = re.compile(r"(\d+)\s*(?:stars?|★|\*)", re.I)
+
+
+def parse_stars(text: str) -> tuple[int | None, str | None]:
+    """'Legendary (7)' / '7 Stars' / '★★★★' / 'Legendary' -> (7, 'Legendary')."""
+    t = text.strip()
+    m = STAR_RE.search(t)
+    if m:
+        return int(m.group(1)), (t[: m.start()].strip(" -:") or None)
+    m = STAR_WORD_RE.search(t)
+    if m:
+        return int(m.group(1)), None
+    if "★" in t or "⭐" in t:
+        return t.count("★") + t.count("⭐"), None
+    key = re.sub(r"\s+", " ", t.lower())
+    if key in TIER_STARS:
+        return TIER_STARS[key], t
+    return None, None
+
+
+def _header_cells(table):
+    """First row that looks like a header: <th> cells, or bold <td> cells."""
+    for tr in table.find_all("tr"):
+        ths = tr.find_all("th")
+        if ths:
+            return [th.get_text(" ", strip=True).lower() for th in ths]
+        tds = tr.find_all("td")
+        if tds and all(td.find(["b", "strong"]) for td in tds):
+            return [td.get_text(" ", strip=True).lower() for td in tds]
+    return []
+
+
+def _col(headers: list[str], *keys: str) -> int | None:
+    for k in keys:
+        for i, h in enumerate(headers):
+            if k in h:
+                return i
+    return None
+
+
 def parse_fusion_table(html: str, animal: str) -> list[dict]:
-    """Return rows [{a, b, name, stars, tier, icon}] from an animal page."""
+    """Return rows [{a, b, name, stars, tier, icon}] from an animal page.
+
+    Pages can hold several combination tables (one per animal set), and the
+    column labels vary between editors, so every table on the page is tried
+    and rows are de-duplicated by parent."""
     soup = BeautifulSoup(html, "html.parser")
-    rows: list[dict] = []
+    rows: dict[str, dict] = {}
     for table in soup.find_all("table"):
-        header_row = next((tr for tr in table.find_all("tr") if tr.find("th")), None)
-        if not header_row:
+        headers = _header_cells(table)
+        pc = _col(headers, "parent", "animal", "partner", "combine", "with", "mother", "father")
+        sc = _col(headers, "star", "rank", "rarity", "tier")
+        nc = _col(headers, "name", "fusion", "result", "animash", "child", "offspring")
+        ic = _col(headers, "icon", "image", "picture")
+        if pc is None or sc is None:
             continue
-        headers = [th.get_text(" ", strip=True).lower() for th in header_row.find_all("th")]
-        if not any("parent" in h for h in headers) or not any("star" in h for h in headers):
-            continue
-
-        def col(key: str) -> int | None:
-            return next((i for i, h in enumerate(headers) if key in h), None)
-
-        pc, nc, ic, sc = col("parent"), col("name"), col("icon"), col("star")
-        if pc is None or nc is None or sc is None:
-            continue
-
         for tr in table.find_all("tr"):
             tds = tr.find_all("td")
-            if len(tds) <= max(pc, nc, sc):
+            if len(tds) <= max(pc, sc):
                 continue
             parent = tds[pc].get_text(" ", strip=True)
-            name = tds[nc].get_text(" ", strip=True)
-            star_text = tds[sc].get_text(" ", strip=True)
-            m = STAR_RE.search(star_text)
-            if not parent or not m:
+            if not parent or parent.lower() == animal.lower():
                 continue
-            tier = star_text[: m.start()].strip() or None
-            rows.append({
-                "a": animal,
-                "b": parent,
-                "name": name or None,
-                "stars": int(m.group(1)),
-                "tier": tier,
+            stars, tier = parse_stars(tds[sc].get_text(" ", strip=True))
+            if stars is None:
+                continue
+            name = tds[nc].get_text(" ", strip=True) if nc is not None and nc < len(tds) else None
+            rows.setdefault(parent, {
+                "a": animal, "b": parent, "name": name or None, "stars": stars, "tier": tier,
                 "icon": _img_src(tds[ic]) if ic is not None and ic < len(tds) else None,
             })
-        if rows:
-            break  # first matching table is the combinations table
-    return rows
+    return list(rows.values())
+
+
+def dump_tables(html: str) -> None:
+    """Debug aid: print every table's header row and first data row."""
+    soup = BeautifulSoup(html, "html.parser")
+    tables = soup.find_all("table")
+    print(f"  {len(tables)} table(s) on page")
+    for i, table in enumerate(tables):
+        print(f"  table {i}: headers={_header_cells(table)}")
+        for tr in table.find_all("tr"):
+            tds = tr.find_all("td")
+            if tds:
+                print("    first row:", [td.get_text(' ', strip=True)[:30] for td in tds])
+                break
 
 
 # -------------------------------------------------------------------- icons
@@ -280,7 +330,14 @@ def main() -> int:
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--no-icons", action="store_true", help="skip downloading reference pictures")
     ap.add_argument("--icons-only", action="store_true", help="only (re)download reference pictures")
+    ap.add_argument("--dump", nargs="+", metavar="TITLE", help="print the tables found on these pages and exit")
     args = ap.parse_args()
+
+    if args.dump:
+        for title in args.dump:
+            print(title)
+            dump_tables(page_html(title, args.refresh))
+        return 0
 
     print("Listing Category:Animals ...")
     animals = list_animals()

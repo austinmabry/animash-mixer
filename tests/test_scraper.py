@@ -35,3 +35,20 @@ def test_merge_symmetric_and_conflicts():
     assert len(m["conflicts"]) == 1 and m["conflicts"][0]["pair"] == ["Black Hole", "Dragon"]
     assert m["unmatched_parents"] == ["Sea Bunny"]
     assert m["fusions"][0]["stars"] == 15  # sorted best-first
+
+
+def test_parse_all_tables_and_label_variants():
+    from scraper.scrape_wiki import parse_stars
+    html = (Path(__file__).parent / "fixtures" / "multi_table.html").read_text()
+    rows = parse_fusion_table(html, "Shiba Inu")
+    got = {r["b"]: (r["name"], r["stars"], r["tier"]) for r in rows}
+    assert got == {
+        "Alien": ("Shibalien", 5, "Rare"),
+        "Cheetah": ("Shibeetah", 7, "Legendary"),      # listed twice, kept once
+        "Pumpkin": ("Shibakin", 8, "Mythical"),        # second table
+        "Toaster": ("Shibatoast", 7, None),            # bold-td headers, "7 Stars"
+        "Rock": ("Shibrock", 4, "Unique"),             # tier name only
+    }
+    assert parse_stars("★★★★★") == (5, None)
+    assert parse_stars("Kappa Supreme (15)") == (15, "Kappa Supreme")
+    assert parse_stars("garbage") == (None, None)

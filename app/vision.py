@@ -118,6 +118,12 @@ def get_matcher(known: list[str]):
     return _matcher
 
 
+def reset_matcher() -> None:
+    """Forget the loaded pictures; the next request reloads data/icons/."""
+    global _matcher
+    _matcher = None
+
+
 def identify_with_icons(image_bytes: bytes, known: list[str]) -> tuple[list[str], list[dict]]:
     m = get_matcher(known)
     results, _ = m.detect(image_bytes)

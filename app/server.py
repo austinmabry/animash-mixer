@@ -4,10 +4,13 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+import threading
+
 from flask import Flask, jsonify, request, send_from_directory
 
-from .fusions import Catalog
+from .fusions import DATA, Catalog
 from .match import ICON_DIR
+from . import vision
 from .vision import identify
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +18,31 @@ STATIC = ROOT / "static"
 
 app = Flask(__name__, static_folder=str(STATIC), static_url_path="/static")
 app.config["MAX_CONTENT_LENGTH"] = 20 * 1024 * 1024
-catalog = Catalog()
+
+_lock = threading.Lock()
+_state = {"catalog": None, "data_sig": None, "icons_sig": None}
+
+
+def _icons_sig():
+    if not ICON_DIR.exists():
+        return None
+    files = list(ICON_DIR.glob("*.png"))
+    return (len(files), max((f.stat().st_mtime for f in files), default=0))
+
+
+def get_catalog() -> Catalog:
+    """Reload data/fusions.json (and drop the picture matcher) whenever the
+    scraper has written new files, so a re-scrape never needs a restart."""
+    sig = DATA.stat().st_mtime if DATA.exists() else None
+    isig = _icons_sig()
+    with _lock:
+        if _state["catalog"] is None or sig != _state["data_sig"]:
+            _state["catalog"] = Catalog()
+            _state["data_sig"] = sig
+        if isig != _state["icons_sig"]:
+            vision.reset_matcher()
+            _state["icons_sig"] = isig
+        return _state["catalog"]
 
 TOP_N = int(os.environ.get("TOP_N", "5"))
 
@@ -27,6 +54,7 @@ def index():
 
 @app.get("/api/health")
 def health():
+    catalog = get_catalog()
     return jsonify({
         "ok": True,
         "animals": len(catalog.animals),
@@ -40,7 +68,7 @@ def health():
 
 @app.get("/api/animals")
 def animals():
-    return jsonify(catalog.animals)
+    return jsonify(get_catalog().animals)
 
 
 @app.post("/api/mixes")
@@ -49,6 +77,7 @@ def mixes():
     names = body.get("animals") or []
     if not isinstance(names, list):
         return jsonify({"error": "animals must be a list of names"}), 400
+    catalog = get_catalog()
     return jsonify(catalog.best_mixes(names, top_n=int(body.get("top_n") or TOP_N)))
 
 
@@ -57,6 +86,7 @@ def analyze():
     f = request.files.get("image")
     if not f:
         return jsonify({"error": "Upload an image in the 'image' field."}), 400
+    catalog = get_catalog()
     try:
         seen = identify(f.read(), catalog.animals)
     except Exception as e:  # surface the real reason to the UI

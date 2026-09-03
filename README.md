@@ -39,8 +39,13 @@ on a star rank), `unmatched parents` (a table names an animal that has no
 page, usually a spelling drift on the wiki) and `pages w/o table`. All three
 are stored in the JSON so you can inspect them; nothing is silently fixed.
 
-Until you run the scraper, the app boots on `data/fusions.sample.json`, which
-is the Dragon page only (195 pairs) and is enough to smoke-test the UI.
+Until you run the scraper, the app serves `data/fusions.sample.json`, which
+is the Dragon page only (195 pairs) and is enough to smoke-test the UI. The
+app notices when `data/fusions.json` or `data/icons/` change and reloads
+them on the next request, so a scrape (or re-scrape) never needs a restart.
+
+If a page's table isn't being picked up, `python scraper/scrape_wiki.py
+--dump Piano` prints every table it sees on that page with its header row.
 Recognition needs `data/icons/` populated; the health endpoint and the footer
 say how many pictures are loaded.
 
